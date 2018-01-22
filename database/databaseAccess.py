@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # Opens a file called projectdb with a SQLite3 DB
-conn = sqlite3.connect("projectdb.db")
+conn = sqlite3.connect("mainsqlite.dbb")
 # Get a cursor object
 c = conn.cursor()
 
