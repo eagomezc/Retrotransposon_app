@@ -1,0 +1,240 @@
+/*****
+GENERAL
+*****/
+
+body{
+  font-family: 'PT Sans', sans-serif;
+  margin: 0;
+}
+
+
+/*****
+HEADING
+*****/
+
+header {
+  float:none;
+  margin: 0 0 30px 0;
+  padding: 5px 0 0 0;
+  width: 100%;
+}
+
+
+#group-name {
+  text-align: left;
+  margin: 5px 5px;
+}
+
+h1 {
+  font-family:'Changa One', cursive;
+  margin: 20px 20px;
+  font-size: 4.2em;
+  font-weight: normal;
+  line-height: 0.8em;
+}
+
+h2 {
+  font-family:Open Sans Condensed, sans-serif;
+  font-size: 2.5em;
+  font-weight: normal;
+  margin: 20px 20px;
+}
+
+ /* ^^ margin:-1000px, 0 0 20px*/
+
+
+/*****
+NAVIGATION
+*****/
+
+nav {
+  text-align: right;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 5px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px 10px;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+/*****
+HOME FAMILIES PAGE
+*****/
+
+#family {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 2.1em;
+  padding-bottom: 10px; 
+  border: 5px solid grey;
+  margin: 30px 250px;
+}
+
+/*****
+DATABASE PAGE
+*****/
+
+
+#elements > p  {
+  margin-top:-40px;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+
+#elements h3, h4 {
+  text-align: left;
+  font-size: 2em ;
+  margin-left: 10px;
+}
+
+
+
+/*****
+HELP PAGE
+*****/
+
+
+.group-pic {
+  display:block;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+#contact-us > h3 {
+  margin: 0  0 1em 0;
+}
+
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+
+.contact-info a {
+  display: block;
+  min-height: 20px;
+  background-repeat:no-repeat;
+  background-size: 20px 20px;
+  padding: 0 0 0 30px;
+}
+
+.contact-info a li {
+  float:center;
+}
+
+.contact-info li.phone a{
+  background-image:url('../img/phone.png');
+}
+
+.contact-info li.mail a{
+  background-image:url('../img/mail.png');
+}
+
+.contact-info li.github a{
+  background-image:url('../img/octocat.png');
+}
+
+
+/*****
+TWO COLUMN LAYOUT
+*****/
+  
+ #primary {
+  width: 50%;
+  float: left;
+  padding: 0 1em;
+}
+  
+#secondary {
+  width: 40%;
+  float: right;
+}
+
+
+/*****
+FOOTER
+*****/
+
+footer{
+  font-size: 0.8em;
+  text-align: center;
+  clear: both;
+  padding-top: 60px; 
+  color: #6a7e82,
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
+
+
+/*****
+COLOURS
+*****/
+
+/*site body*/
+body {
+  background-color: #fff;
+  color: #7f7e82;
+}
+
+/*purple header*/
+header {
+  background: #422a56;
+  border-color: #423a56;
+}
+
+/*nav background*/
+nav {
+  background: #423a56;
+}
+
+/* group-name text*/
+h1, h2 {
+  color: white;
+}
+
+/*links*/
+a {
+  color: #9379d1;
+}
+
+/*nav link*/
+nav a, nav a:visited {
+  color: white;
+}
+
+/*selected nav link*/
+nav a.selected, nav a:hover {
+  color: #cdbaff;
+}
+
+
+
+
+
