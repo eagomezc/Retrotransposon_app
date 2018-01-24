@@ -224,15 +224,15 @@ HELP PAGE
 }
 
 .contact-info li.phone a{
-  background-image:url('../img/phone.png');
+  background-image:url('../static/phone.png');
 }
 
 .contact-info li.mail a{
-  background-image:url('../img/mail.png');
+  background-image:url('../static/mail.png');
 }
 
 .contact-info li.github a{
-  background-image:url('../img/octocat.png');
+  background-image:url('../static/octocat.png');
 }
 
 
