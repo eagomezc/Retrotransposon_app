@@ -1,0 +1,66 @@
+@media screen and (min-width: 480px) {
+  
+  /*****
+  TWO COLUMN LAYOUT
+  *****/
+
+    
+  #primary {
+    width: 50%;
+    float: left;
+    padding: 0 1em;
+  }
+  
+  #secondary {
+    width: 40%;
+    float: right;
+  }
+  
+  .group-pic {
+    float: left;
+    margin: 0 5% 80px 0;
+  }
+
+  
+  
+}
+
+@media screen and (max-width: 660px) {
+  
+
+  nav {
+    float: right;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  group-name {
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  
+    /*****
+  TWO COLUMN LAYOUT
+  *****/
+
+    
+  #primary {
+    width: 50%;
+    float: left;
+    padding: 0 1em;
+  }
+  
+  #secondary {
+    width: 40%;
+    float: right;
+  }
+  
+  .group-pic {
+    float: left;
+    margin: 0 5% 80px 0;
+  }
+
+  
+}

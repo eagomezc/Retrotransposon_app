@@ -85,7 +85,8 @@ HOME FAMILIES PAGE
   font-size: 2.1em;
   padding-bottom: 10px; 
   border: 5px solid grey;
-  margin: 30px 250px;
+  margin: 150px 150px;
+  margin-bottom: -10px;
 }
 
 /*****
@@ -104,8 +105,85 @@ DATABASE PAGE
   text-align: left;
   font-size: 2em ;
   margin-left: 10px;
+  padding-bottom: 0.5em;
 }
 
+
+.l1-pic {
+  margin-left: 150px;
+  padding: 0.2em;
+  border: 5px solid black;
+}
+
+/*****
+TABLE
+*****/
+
+table {
+  margin-top: 30px;
+  margin-left: 150px;
+  padding: 0 50px 0 50px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+/*****
+SEARCH PAGE
+*****/
+
+
+input[type=text] {
+  margin-left: 30px;
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 70%;
+}
+
+
+.search-form {
+  padding-left: 30px;
+}
+
+
+/*****
+TOOLS PAGE
+*****/
+
+input[type=file] {
+  padding-left: 30px;
+}
+
+.upload-form {
+  padding-left: 30px;
+}
 
 
 /*****
@@ -115,7 +193,7 @@ HELP PAGE
 
 .group-pic {
   display:block;
-  max-width: 700px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
@@ -233,7 +311,6 @@ nav a, nav a:visited {
 nav a.selected, nav a:hover {
   color: #cdbaff;
 }
-
 
 
 
