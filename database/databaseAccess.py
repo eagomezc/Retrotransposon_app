@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # Opens a file called projectdb with a SQLite3 DB
-conn = sqlite3.connect("mainsqlite.dbb")
+conn = sqlite3.connect("retroelement.db")
 # Get a cursor object
 c = conn.cursor()
 
@@ -68,12 +68,12 @@ def updateAminoAcid(id, aminoacid):
 # getByRepFamily("ERVL")
 # getByRepClass("LTR")
 # getByGenoId(1)
-updateSequence(1, "seq")
-updateAminoAcid(1, "amino")
+# updateSequence(1, "seq")
+# updateAminoAcid(1, "amino") database function examples
 
-# getChromosomeNumberByRepName("MLT1A1")
+# getChromosomeNumberByRepName("MLT1A1") grabs chromosone number, strand, start and end positions
 
 # Close the cursor
-c.close()
+c.close() # functions cannot be run if connection is closed
 # Close the db connection
 conn.close()

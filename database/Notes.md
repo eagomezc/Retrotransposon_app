@@ -1,9 +1,9 @@
 List:
 
-1. Create_database.py written in python 3, will change to 2.7.
+1. Create_database.py now in 2.7, runs more quickly, however, still takes a bit of time to generate a database due to the amount of data in the raw data files
 
-2. Create_database.py, will need the db file and files names to be configured to path.
+2. Create_database.py, raw data files must be in the same path that the script is run from to generate the database
 
-3. Will need to integrate results into flask.
+3. Database interaction with flask is underway, should be compeleted soon. Soonish.
 
 
