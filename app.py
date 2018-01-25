@@ -1,10 +1,10 @@
-#Farfalloni
+#RETROtransposon
 
-from flask import Flask, render_template, url_for, redirect
-
+#Import Classes:
+from flask import Flask, render_template, g
+import sqlite3 as sql
 
 app = Flask(__name__)
-
 
 @app.route('/index.html')
 def index():
@@ -12,14 +12,23 @@ def index():
   
 @app.route('/database.html')
 def database():
-    return render_template('database.html')
+   con = sql.connect("final.db")
+   con.row_factory = sql.Row
+   
+   cur = con.cursor()
+   cur.execute("select * from ERV where repClass='LINE'")
+   l1s = cur.fetchmany(20)
+   cur.execute("select * from ERV where repClass='LTR'")
+   ltrs = cur.fetchmany(20)
+   
+   return render_template("database.html",l1s = l1s,ltrs=ltrs)
 
 @app.route('/search.html')
 def search():
     return render_template('search.html')
 
-@app.route('/results/<query>')
-def results(query):
+@app.route('/results.html')
+def results():
     return render_template('results.html')
 
 @app.route('/ind/<individual>')
@@ -30,9 +39,11 @@ def individual(individual):
 def tools():
     return render_template('tools.html')
 
+
 @app.route('/help.html')
 def help():
     return render_template('help.html')
+
 
 if __name__ == "__main__":
     app.run()

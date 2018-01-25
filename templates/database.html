@@ -33,27 +33,25 @@
       <img src="static/line1-ribosome.png" alt="Line-1 ribosome" class="l1-pic">
       <img src="static/line1-ribosome.png" alt="Line-1 ribosome" class="l1-pic">
       
+
       <table>
   <tr>
-    <th>Genome name</th>
-    <th>Strand</th> 
-    <th>Rep name</th>
+    <th>Repetition Name</th>
+    <th>Chromosome</th> 
+    <th>Strand</th>
+    <th>Retrotransposon Family</th>
   </tr>
+
+ {% for l1 in l1s %}
   <tr>
-    <td>chr1</td>
-    <td>forward</td>
-    <td>L1P5</td>
+    <td><a href="help.html">{{l1["repName"]}}</a></td>
+    <td>{{l1["genoName"]}}</td>
+    <td>{{l1["strand"]}}</td>
+    <td>{{l1["repFamily"]}}</td>
+    
+    
   </tr>
-  <tr>
-    <td>chr1</td>
-    <td>forward</td>
-    <td>L1MB5</td>
-  </tr>
-  <tr>
-    <td>chr1</td>
-    <td>forward</td>
-    <td>HAL1</td>
-  </tr>
+ {% endfor %} 
 </table>
       
       <h3>HERV</h3>
@@ -64,25 +62,22 @@
       
       <table>
   <tr>
-    <th>Genome name</th>
-    <th>Strand</th> 
-    <th>Rep name</th>
+    <th>Repetition Name</th>
+    <th>Chromosome</th> 
+    <th>Strand</th>
+    <th>Retrotransposon Family</th>
   </tr>
+
+ {% for ltr in ltrs %}
   <tr>
-    <td>chr1</td>
-    <td>forward</td>
-    <td>MSTA-int</td>
+    <td><a href="help.html">{{ltr["repName"]}}</a></td>
+    <td>{{ltr["genoName"]}}</td>
+    <td>{{ltr["strand"]}}</td>
+    <td>{{ltr["repFamily"]}}</td>
+    
+    
   </tr>
-  <tr>
-    <td>chr1</td>
-    <td>reverse</td>
-    <td>HUERS-P3b</td>
-  </tr>
-  <tr>
-    <td>chr1</td>
-    <td>forward</td>
-    <td>MLT1C</td>
-  </tr>
+ {% endfor %} 
 </table>
     </div>
     
