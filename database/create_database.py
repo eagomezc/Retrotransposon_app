@@ -6,9 +6,9 @@ from sqlite3 import Error
 # source file names
 source_files = ("ERV.csv", "L1.csv")
 # path to sqlite3 db file
-db_file = "mainsqlite.db"
+db_file = "retroelement.db"
 # table name to store the data
-table_name = "maintable1"
+table_name = "genoTable"
 ########### END OF CONFIGURATION
 
 print("Starting the importer")
@@ -32,23 +32,23 @@ def importData(source_filename):
             # Table does not exist, we have to create it.\
             print("Table does not exist, we have to create it")
             dbcursor.execute('''CREATE TABLE '{0}'
-                  (genoName	TEXT,
-                  genoStart	INT,
-                  genoEnd	INT,
-                  strand	TEXT,
-                  repName	TEXT,
-                  repClass	TEXT,
-                  repFamily	TEXT,
-                  repStart	INT,
-                  repEnd	INT,
-                  Sequence	TEXT,
-                  Gag 		TEXT,
-		          Pol 		TEXT,
-		          Env		TEXT,
-		          ORF1		TEXT,
-		          ORF2		TEXT,
-		          ORF0		TEXT)'''
-                             .format(table_name.replace('\'', '\'\'')))
+                  (genoName TEXT,
+                  genoStart INT,
+                  genoEnd INT,
+                  strand  TEXT,
+                  repName TEXT,
+                  repClass  TEXT,
+                  repFamily TEXT,
+                  repStart  INT,
+                  repEnd  INT,
+                  Sequence  TEXT,
+                  Gag TEXT,
+                  Pol TEXT,
+                  Env TEXT,
+                  ORF1  TEXT,
+                  ORF2  TEXT,
+                  ORF0  TEXT)'''
+                             .format(table_name.replace('\'', '\'\''))) # Raw data follow column order of: gag, pol, env, ORF1, ORF2, and ORF0. 
 
         # Open source file and read line by line from it
         with open(source_filename) as csvfile:
@@ -65,12 +65,12 @@ def importData(source_filename):
                                     "repStart",
                                     "repEnd",
                                     "Sequence",
-                                    "Gag"
-				                    "Pol"
-				                    "Env"
-				                    "ORF1"
-				                    "ORF2"
-				                    "ORF0") VALUES (
+                                    "Gag",
+                                    "Pol",
+                                    "Env",
+                                    "ORF1",
+                                    "ORF2",
+                                    "ORF0") VALUES (
                                     :genoName,
                                     :genoStart,
                                     :genoEnd,
@@ -81,13 +81,13 @@ def importData(source_filename):
                                     :repStart,
                                     :repEnd,
                                     :Sequence,
-                                    :Gag
-				                    :Pol
-				                    :Env
-				                    :ORF1
-				                    :ORF2
-				                    :ORF0
-                                    );'''.format(table_name.replace('\'', '\'\'')),
+                                    :Gag,
+                                    :Pol,
+                                    :Env,
+                                    :ORF1,
+                                    :ORF2,
+                                    :ORF0
+                                    );'''.format(table_name.replace('\'', '\'\'')), # Data files follow column order, even if column empty.
                                  {
                                      "genoName": row["genoName"],
                                      "genoStart": row["genoStart"],
@@ -99,12 +99,12 @@ def importData(source_filename):
                                      "repStart": row["repStart"],
                                      "repEnd": row["repEnd"],
                                      "Sequence": row["Sequence"],
-                                     "Gag": row["Gag"]
-				                     "Pol": row["Pol"]
-				                     "Env": row["Env"]
-				                     "ORF1": row["ORF1"]
-				                     "ORF2": row["ORF2"]
-				                     "ORF0": row["ORF0"]
+                                     "Gag": row["Gag"],
+                                     "Pol": row["Pol"],
+                                     "Env": row["Env"],
+                                     "ORF1": row["ORF1"],
+                                     "ORF2": row["ORF2"],
+                                     "ORF0": row["ORF0"]
                                  })
                 print("Created a new row")
         dbconn.commit()
