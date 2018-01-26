@@ -40,9 +40,6 @@ h2 {
   margin: 20px 20px;
 }
 
- /* ^^ margin:-1000px, 0 0 20px*/
-
-
 /*****
 NAVIGATION
 *****/
@@ -74,6 +71,9 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
 
 /*****
 HOME FAMILIES PAGE
@@ -93,15 +93,27 @@ HOME FAMILIES PAGE
 DATABASE PAGE
 *****/
 
-
-#elements > p  {
+#line > p  {
   margin-top:-40px;
   font-size: 1em;
   margin-left: 10px;
 }
 
 
-#elements h3, h4 {
+#line h3 {
+  text-align: left;
+  font-size: 2em ;
+  margin-left: 10px;
+  padding-bottom: 0.5em;
+}
+
+#herv > p  {
+  margin-top:-40px;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+#herv h3 {
   text-align: left;
   font-size: 2em ;
   margin-left: 10px;
@@ -109,11 +121,25 @@ DATABASE PAGE
 }
 
 
-.l1-pic {
-  margin-left: 150px;
-  padding: 0.2em;
-  border: 5px solid black;
+/*****
+VISUALS
+*****/
+
+#graphs {
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
 }
+
+#graphs li {
+  list-style: none;
+  float: left;
+  width: 45%;
+  margin: 2.5%;
+  background-color: light-grey;
+  color: black;
+}
+
 
 /*****
 TABLE
@@ -172,6 +198,9 @@ input[type=text]:focus {
   padding-left: 30px;
 }
 
+.pep-seq {
+  padding-left: 30px;
+}
 
 /*****
 TOOLS PAGE
