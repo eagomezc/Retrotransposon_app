@@ -26,7 +26,20 @@
       </nav>
     </header>
     
-    
+   <div id="individual">
+ {% if ind %}
+	<h1>{{ind["repName"]}}</h1>
+	<p>Chromosome: {{ind["genoName"]}} </p>
+	<p>Strand: {{ind["strand"]}} </p>
+	<p>Retrotransposon Family: {{ind["repFamily"]}} </p>
+        <p>Rest of the data </p>
+	<p> Insert image </p>
+ {% else %}
+ <h1>Register not found</h1>
+ {% endif %} 
+    </div>    
+
+
      <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>

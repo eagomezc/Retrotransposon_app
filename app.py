@@ -6,15 +6,15 @@ import sqlite3 as sql
 
 app = Flask(__name__)
 
+con = sql.connect("final.db")
+con.row_factory = sql.Row
+
 @app.route('/index.html')
 def index():
     return render_template('index.html')
   
 @app.route('/database.html')
 def database():
-   con = sql.connect("final.db")
-   con.row_factory = sql.Row
-   
    cur = con.cursor()
    cur.execute("select * from ERV where repClass='LINE'")
    l1s = cur.fetchmany(20)
@@ -22,6 +22,14 @@ def database():
    ltrs = cur.fetchmany(20)
    
    return render_template("database.html",l1s = l1s,ltrs=ltrs)
+
+@app.route('/<ind>/<individual>')
+def individual(ind,individual):
+        t = (ind,individual)
+	cur = con.cursor()
+        cur.execute("select * from ERV where repName=? and genoStart=?", t)
+        ind = cur.fetchone()
+	return render_template('individual.html', ind = ind)
 
 @app.route('/search.html')
 def search():
@@ -31,9 +39,6 @@ def search():
 def results():
     return render_template('results.html')
 
-@app.route('/ind/<individual>')
-def individual(individual):
-    return render_template('individual.html')
 
 @app.route('/tools.html')
 def tools():
