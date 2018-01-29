@@ -36,14 +36,22 @@ def search():
 
 @app.route('/results.html')
 def results():
-   w = request.args.get('repFamily') 
+   w = request.args.get('repFamily')
+   if w=="":
+      w='%'
    x = request.args.get('repName')
+   if x=="":
+      x='%'
    y = request.args.get('genoName')
+   if y=="":
+      y='%'
    z = request.args.get('strand')
-   t = (w,x,y,z)
+   if z=="":
+      z='%'
    cur = con.cursor()
-   cur.execute("select * from ERV where repFamily=? and repName=? and genoName=? and strand=?", t)
-   res = cur.fetchall()
+   cur.execute("select * from ERV where repFamily LIKE'"+w+"'and repName LIKE'"+x+"'and genoName LIKE'"+y+"'and strand LIKE'"+z+"'")
+   #cur.execute("select * from ERV where (repFamily=? or ? IS NULL) and repName=? and genoName=? and strand=?", t)
+   res = cur.fetchmany(20)
    return render_template('results.html', res = res)
 
 @app.route('/tools.html')
