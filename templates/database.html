@@ -49,7 +49,7 @@
 
  {% for l1 in l1s %}
   <tr>
-    <td><a href="/{{l1["repName"]}}/{{l1["genoStart"]}}">{{l1["repName"]}}</a></td>
+    <td><a href="individual.html-{{l1["repName"]}}-{{l1["genoStart"]}}">{{l1["repName"]}}</a></td>
     <td>{{l1["genoName"]}}</td>
     <td>{{l1["strand"]}}</td>
     <td>{{l1["repFamily"]}}</td>    
@@ -78,7 +78,7 @@
 
  {% for ltr in ltrs %}
   <tr>
-    <td><a href="/{{ltr["repName"]}}/{{ltr["genoStart"]}}">{{ltr["repName"]}}</a></td>
+    <td><a href="individual.html-{{ltr["repName"]}}-{{ltr["genoStart"]}}">{{ltr["repName"]}}</a></td>
     <td>{{ltr["genoName"]}}</td>
     <td>{{ltr["strand"]}}</td>
     <td>{{ltr["repFamily"]}}</td>

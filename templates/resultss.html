@@ -25,8 +25,7 @@
       </nav>
     </header>
     
- <div id="results">
- {% if res %}
+
   <table>
   <tr>
     <th>Repetition Name</th>
@@ -37,17 +36,13 @@
 
  {% for re in res %}
   <tr>
-    <td><a href="individual.html-{{re["repName"]}}-{{re["genoStart"]}}">{{re["repName"]}}</a></td>
+    <td><a href="individual.html/{{re["repName"]}}/{{re["genoStart"]}}">{{re["repName"]}}</a></td>
     <td>{{re["genoName"]}}</td>
     <td>{{re["strand"]}}</td>
     <td>{{re["repFamily"]}}</td>    
   </tr>
  {% endfor %} 
 
- {% else %}
- <h3>Query not found</h3>
- {% endif %} 
-  </div>    
     
     
       <footer>

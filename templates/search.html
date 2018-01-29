@@ -21,38 +21,30 @@
           <li><a href="individual.html">Individual</a></li>
           <li><a href="search.html" class="selected">Search</a></li>
           <li><a href="tools.html">Tools</a></li>
-<!--          <li><a href="results.html">Results</a></li>-->
           <li><a href="help.html">Help</a></li>
         </ul>
       </nav>
     </header>
     
     <h3 class="search-form">Search for a specific retrotransposon:</h3>
+
+
+<form action="{{url_for('results')}}"  method='get'>
+ <label class="pep-seq">Retrotransposon name:</label>
+      <input type="text" name="repName">
+ <br></br>
+ <label class="pep-seq">Chromosome:</label>
+      <input type="text" name="genoName">
+ <br></br>
+ <label class="pep-seq">Retrotransposon Family:</label>
+      <input type="text" name="repFamily">
+ <br></br>
+ <label class="pep-seq">Strand:</label>
+      <input type="text" name="strand">
+ <br></br>
+<input type='submit' value='Submit'>
+</form>
     
-    <label class="pep-seq">Retrotransposon name:</label>
-      <form action="/results.html">
-      <input type="text" name="search">
-      <input type="submit">
-      </form>   
-    
-    <label class="pep-seq">Retrotransposon family:</label>
-        <form action="/results.html">
-        <input type="text" name="search">
-        <input type="submit">
-        </form>  
-      
-    <label class="pep-seq">Peptide sequence:</label>
-      <form action="/results.html">
-      <input type="text" name="search">
-      <input type="submit">
-      </form>
-    
-    <label class="pep-seq">Amino acid sequence:</label>
-      <form action="/results.html">
-      <input type="text" name="search">
-      <input type="submit">
-      </form>
-      
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>

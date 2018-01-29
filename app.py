@@ -1,7 +1,7 @@
 #RETROtransposon
 
 #Import Classes:
-from flask import Flask, render_template, g
+from flask import Flask, render_template, request
 import sqlite3 as sql
 
 app = Flask(__name__)
@@ -20,16 +20,15 @@ def database():
    l1s = cur.fetchmany(20)
    cur.execute("select * from ERV where repClass='LTR'")
    ltrs = cur.fetchmany(20)
-   
    return render_template("database.html",l1s = l1s,ltrs=ltrs)
 
-@app.route('/<ind>/<individual>')
+@app.route('/individual.html-<ind>-<individual>')
 def individual(ind,individual):
-        t = (ind,individual)
-	cur = con.cursor()
-        cur.execute("select * from ERV where repName=? and genoStart=?", t)
-        ind = cur.fetchone()
-	return render_template('individual.html', ind = ind)
+   t = (ind,individual)
+   cur = con.cursor()
+   cur.execute("select * from ERV where repName=? and genoStart=?", t)
+   ind = cur.fetchone()
+   return render_template('individual.html', ind = ind)
 
 @app.route('/search.html')
 def search():
@@ -37,8 +36,15 @@ def search():
 
 @app.route('/results.html')
 def results():
-    return render_template('results.html')
-
+   w = request.args.get('repFamily')
+   x = request.args.get('repName')
+   y = request.args.get('genoName')
+   z = request.args.get('strand')
+   t = (w,x,y,z)
+   cur = con.cursor()
+   cur.execute("select * from ERV where repFamily=? and repName=? and genoName=? and strand=?", t)
+   res = cur.fetchall()
+   return render_template('results.html', res = res)
 
 @app.route('/tools.html')
 def tools():
