@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Farfalloni|Retrotransposons</title>
+    <link rel="stylesheet" href="static/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans+Condensed:300i|PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="static/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+ 
+  
+  <body>
+    <header>
+      <a href="index.html" id="group-name">
+        <h1>RETROtransposons</h1>
+        <h2>for everything retrotransposon-y</h2>
+      </a> 
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="database.html" class="selected">Database</a></li>
+          <li><a href="individual.html" class="hide">Individual</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="results.html" class="hide">Results</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="help.html">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div id="line">
+      <h3>LINE 1</h3>
+      <p>LINE-1 (long interspersed nuclear elements) are transposable elements in DNA that compose ~17% of the human genome. L1 have transferred to the genome of the gonorrhea bacteria. A L1 element is 6000 base pairs long and consists of 2 non overlapping open reading frames (ORF1 and ORF2), which are flanked by UTR and target site duplications. 
+        Carry on reading to find out more transposon information!</p>
+      <section id="graphs">
+      <ul>
+        <li> <a href="https://plot.ly/~vithusaa.selva1/14/?share_key=YoSlq5Tbk6MfrH11mulhvM" target="_blank" title="bar-direct-labels" style="display: block; text-align: center;"><img src="https://plot.ly/~vithusaa.selva1/14.png?share_key=YoSlq5Tbk6MfrH11mulhvM" alt="bar-direct-labels" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a> <script data-plotly="vithusaa.selva1:14" sharekey-plotly="YoSlq5Tbk6MfrH11mulhvM" src="https://plot.ly/embed.js" async></script></li>
+        <li> <a href="https://plot.ly/~vithusaa.selva1/14/?share_key=YoSlq5Tbk6MfrH11mulhvM" target="_blank" title="bar-direct-labels" style="display: block; text-align: center;"><img src="https://plot.ly/~vithusaa.selva1/14.png?share_key=YoSlq5Tbk6MfrH11mulhvM" alt="bar-direct-labels" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a> <script data-plotly="vithusaa.selva1:14" sharekey-plotly="YoSlq5Tbk6MfrH11mulhvM" src="https://plot.ly/embed.js" async></script></li>
+      </ul>
+    </section> 
+      
+
+  <table>
+  <tr>
+    <th>Repetition Name</th>
+    <th>Chromosome</th> 
+    <th>Strand</th>
+    <th>Retrotransposon Family</th>
+  </tr>
+
+ {% for l1 in l1s %}
+  <tr>
+    <td><a href="individual.html-{{l1["repName"]}}-{{l1["genoStart"]}}">{{l1["repName"]}}</a></td>
+    <td>{{l1["genoName"]}}</td>
+    <td>{{l1["strand"]}}</td>
+    <td>{{l1["repFamily"]}}</td>    
+  </tr>
+ {% endfor %} 
+</table>
+    </div>
+      
+      <div id="herv">
+      <h3>HERV</h3>
+      <p>Endogenous retroviruses (ERVs) are the most important LTR (long terminal repeats) retrotransposon in mammals, making up 8% of the human genome. These LTRs mobilise through reverse transcription of their mRNA and integrate the newly created cDNA into another location. Carry on reading to find out more transposon information!</p>
+      
+      <section id="graphs">
+      <ul>
+        <li><a href="https://plot.ly/~vithusaa.selva1/12/?share_key=okle15dIlFC85K08wQ3kqi" target="_blank" title="angled-text-bar" style="display: block; text-align: center;"><img src="https://plot.ly/~vithusaa.selva1/12.png?share_key=okle15dIlFC85K08wQ3kqi" alt="angled-text-bar" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a> <script data-plotly="vithusaa.selva1:12" sharekey-plotly="okle15dIlFC85K08wQ3kqi" src="https://plot.ly/embed.js" async></script></li>
+        <li><a href="https://plot.ly/~vithusaa.selva1/10/?share_key=NxhuM38ijkIrwPCyzctK3Z" target="_blank" title="donutERV" style="display: block; text-align: center;"><img src="https://plot.ly/~vithusaa.selva1/10.png?share_key=NxhuM38ijkIrwPCyzctK3Z" alt="donutERV" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /> </a> <script data-plotly="vithusaa.selva1:10" sharekey-plotly="NxhuM38ijkIrwPCyzctK3Z" src="https://plot.ly/embed.js" async></script> </li>
+      </ul>
+    </section> 
+      
+  <table>
+  <tr>
+    <th>Repetition Name</th>
+    <th>Chromosome</th> 
+    <th>Strand</th>
+    <th>Retrotransposon Family</th>
+  </tr>
+
+ {% for ltr in ltrs %}
+  <tr>
+    <td><a href="individual.html-{{ltr["repName"]}}-{{ltr["genoStart"]}}">{{ltr["repName"]}}</a></td>
+    <td>{{ltr["genoName"]}}</td>
+    <td>{{ltr["strand"]}}</td>
+    <td>{{ltr["repFamily"]}}</td>
+    
+  </tr>
+ {% endfor %} 
+</table>
+    </div>
+
+      <footer>
+        <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
+        <p>Farfalloni 2018 &copy;</p>
+      </footer>
+   
+  </body>
+</html>
