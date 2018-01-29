@@ -44,6 +44,10 @@ h2 {
 NAVIGATION
 *****/
 
+.hide {
+  display: none;
+}
+
 nav {
   text-align: right;
   padding: 10px 0;
