@@ -52,20 +52,24 @@ $(document).ready(function() {
       
 
   <table id="example" class="display">
+    <thead>
   <tr>
     <th>Repetition Name</th>
     <th>Chromosome</th> 
     <th>Strand</th>
     <th>Retrotransposon Family</th>
   </tr>
+    </thead>
 
  {% for l1 in l1s %}
+    <tbody>
   <tr>
     <td><a href="individual.html-{{l1["repName"]}}-{{l1["genoStart"]}}">{{l1["repName"]}}</a></td>
     <td>{{l1["genoName"]}}</td>
     <td>{{l1["strand"]}}</td>
     <td>{{l1["repFamily"]}}</td>    
   </tr>
+    </tbody>
  {% endfor %} 
 </table>
     </div>
