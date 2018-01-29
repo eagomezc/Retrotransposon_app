@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="static/normalize.css">
     <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans+Condensed:300i|PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+  
+    <script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "lengthMenu": [[5, 10, 20], [5, 10, 20]]
+    } );
+} );
+    </script> 
+  
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -18,10 +30,10 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="database.html" class="selected">Database</a></li>
-          <li><a href="individual.html">Individual</a></li>
+          <li><a href="individual.html" class="hide">Individual</a></li>
           <li><a href="search.html">Search</a></li>
+          <li><a href="results.html" class="hide">Results</a></li>
           <li><a href="tools.html">Tools</a></li>
-<!--          <li><a href="results.html">Results</a></li>-->
           <li><a href="help.html">Help</a></li>
         </ul>
       </nav>
@@ -39,7 +51,7 @@
     </section> 
       
 
-  <table>
+  <table id="example" class="display" cellspacing="0" width="100%">
   <tr>
     <th>Repetition Name</th>
     <th>Chromosome</th> 
@@ -56,6 +68,7 @@
   </tr>
  {% endfor %} 
 </table>
+    </div>
       
       <div id="herv">
       <h3>HERV</h3>
@@ -68,7 +81,7 @@
       </ul>
     </section> 
       
-  <table>
+  <table id="example" class="display" cellspacing="0" width="100%">
   <tr>
     <th>Repetition Name</th>
     <th>Chromosome</th> 
@@ -87,9 +100,7 @@
  {% endfor %} 
 </table>
     </div>
-    
-    
-  
+
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>

@@ -37,6 +37,8 @@ def search():
 @app.route('/results.html')
 def results():
    w = request.args.get('repFamily')
+   if w=="":
+      
    x = request.args.get('repName')
    y = request.args.get('genoName')
    z = request.args.get('strand')
