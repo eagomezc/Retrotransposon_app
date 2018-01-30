@@ -12,13 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <script>
       $(document).ready(function(){
-      $('#l1-table').DataTable();
+      $('#l1table').DataTable();
       });
     </script>
 
     <script>
       $(document).ready(function(){
-      $('#herv-table').DataTable();
+      $('#hervtable').DataTable();
       });
     </script>
 
@@ -53,13 +53,15 @@
     </section> 
       
 
-  <table id="l1-table">
+  <table id="l1table">
+  <thead>
   <tr>
     <th>Repetition Name</th>
     <th>Chromosome</th> 
     <th>Strand</th>
     <th>Retrotransposon Family</th>
   </tr>
+  </thead>
 
  {% for l1 in l1s %}
   <tr>
@@ -83,13 +85,15 @@
       </ul>
     </section> 
       
-  <table id="herv-table">
+  <table id="hervtable">
+  <thead>
   <tr>
     <th>Repetition Name</th>
     <th>Chromosome</th> 
     <th>Strand</th>
     <th>Retrotransposon Family</th>
   </tr>
+  </thead>
 
  {% for ltr in ltrs %}
   <tr>
