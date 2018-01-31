@@ -17,9 +17,9 @@ def index():
 def database():
    cur = con.cursor()
    cur.execute("select * from ERV where repClass='LINE'")
-   l1s = cur.fetchmany(20)
+   l1s = cur.fetchmany(5000)
    cur.execute("select * from ERV where repClass='LTR'")
-   ltrs = cur.fetchmany(20)
+   ltrs = cur.fetchmany(5000)
    return render_template("database.html",l1s = l1s,ltrs=ltrs)
 
 @app.route('/individual.html-<ind>-<individual>')
@@ -48,11 +48,27 @@ def results():
    z = request.args.get('strand')
    if z=="":
       z='%'
+   a = request.args.get('amino')
    cur = con.cursor()
-   cur.execute("select * from ERV where repFamily LIKE'"+w+"'and repName LIKE'"+x+"'and genoName LIKE'"+y+"'and strand LIKE'"+z+"'")
-   #cur.execute("select * from ERV where (repFamily=? or ? IS NULL) and repName=? and genoName=? and strand=?", t)
-   res = cur.fetchmany(20)
+   cur.execute("select * from ERV where repFamily LIKE'"+w+"'and repName LIKE'"+x+"'and genoName LIKE'"+y+"'and strand LIKE'"+z+"'and (ORF1 LIKE'%"+a+"%' OR ORF2 LIKE'%"+a+"%' OR ORF3 LIKE'%"+a+"%')")
+   res = cur.fetchall()
    return render_template('results.html', res = res)
+
+@app.route('/resultsa.html')
+def resultsa():
+   w = request.args.get('ORF1')
+   if w!="M":
+      w='N'
+   x = request.args.get('ORF2')
+   if x!="M":
+      x='N'
+   y = request.args.get('ORF0')
+   if y!="M":
+      y='N'
+   cur = con.cursor()
+   cur.execute("select * from ERV where ORF1 LIKE'"+w+"%' and ORF2 LIKE'"+x+"%' and ORF3 LIKE'"+y+"%'")
+   res = cur.fetchall()
+   return render_template('resultsa.html', res = res, x=x)
 
 @app.route('/tools.html')
 def tools():

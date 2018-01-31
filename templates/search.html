@@ -41,7 +41,19 @@
  <label class="pep-seq">Strand:</label>
       <input type="text" name="strand">
  <br></br>
+ <label class="pep-seq">Amino Acid Sequence:</label>
+      <input type="text" name="amino">
+ <br></br>
 <input type='submit' value='Submit'>
+</form>
+
+    <h3 class="search-form">Show only the retrotransposon that contains:</h3>
+
+<form action="{{url_for('resultsa')}}"  method='get'>
+  <input type="checkbox" name="ORF1" value="M" checked> ORF1 (LINE) or Gag (ERV)<br>
+  <input type="checkbox" name="ORF2" value="M" checked> ORF2 (LINE) or Pol (ERV)<br>
+  <input type="checkbox" name="ORF0" value="M" checked> ORF0 (LINE) or Env (ERV)<br>
+  <input type="submit" value="Submit">
 </form>
     
       <footer>
