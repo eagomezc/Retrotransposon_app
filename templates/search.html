@@ -27,7 +27,6 @@
     
     <h3 class="search-form">Search for a specific retrotransposon:</h3>
 
-
 <form action="{{url_for('results')}}"  method='get'>
  <label class="pep-seq">Retrotransposon name:</label>
       <input type="text" name="repName">
@@ -44,18 +43,31 @@
  <label class="pep-seq">Amino Acid Sequence:</label>
       <input type="text" name="amino">
  <br></br>
-<input type='submit' value='Submit'>
+<section class="searchone">
+<input type='submit' value='Submit' class="1stsearch">
+<style>
+ .1stsearch {
+  padding: 30px;
+}
+</style>
+</section>
 </form>
 
     <h3 class="search-form">Show only the retrotransposon that contains:</h3>
 
+<section class="tickbox">
+<style>
+  .tickbox {
+  padding-left: 30px;
+}
+</style>
 <form action="{{url_for('resultsa')}}"  method='get'>
   <input type="checkbox" name="ORF1" value="M" checked> ORF1 (LINE) or Gag (ERV)<br>
   <input type="checkbox" name="ORF2" value="M" checked> ORF2 (LINE) or Pol (ERV)<br>
   <input type="checkbox" name="ORF0" value="M" checked> ORF0 (LINE) or Env (ERV)<br>
   <input type="submit" value="Submit">
 </form>
-    
+</section>
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>
