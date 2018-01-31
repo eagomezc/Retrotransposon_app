@@ -172,6 +172,13 @@ tr:nth-child(even) {
 }
 
 
+#l1table {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
 /*****
 SEARCH PAGE
 *****/
@@ -205,6 +212,12 @@ input[type=text]:focus {
 .pep-seq {
   padding-left: 30px;
 }
+
+
+.tickbox {
+  padding-left: 30px;
+}
+
 
 /*****
 TOOLS PAGE
