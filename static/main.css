@@ -308,6 +308,8 @@ footer{
   clear: both;
   padding-top: 60px; 
   color: #6a7e82,
+  position:absolute;
+  bottom: 0;
 }
 
 .social-icon {
