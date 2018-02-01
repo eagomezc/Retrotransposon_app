@@ -16,17 +16,25 @@ def index():
 @app.route('/database.html')
 def database():
    cur = con.cursor()
-   cur.execute("select * from ERV where repClass='LINE'")
-   l1s = cur.fetchmany(5000)
-   cur.execute("select * from ERV where repClass='LTR'")
-   ltrs = cur.fetchmany(5000)
+   cur.execute("SELECT DISTINCT repName FROM ERV WHERE repClass='LINE'")
+   l1s = cur.fetchall()
+   cur.execute("select DISTINCT repName FROM ERV WHERE repClass='LTR'")
+   ltrs = cur.fetchall()
    return render_template("database.html",l1s = l1s,ltrs=ltrs)
+
+@app.route('/groups.html-<repName>')
+def groups(repName):
+   t = (repName,)
+   cur = con.cursor()
+   cur.execute("select * FROM ERV WHERE repName=?", t)
+   group = cur.fetchall()
+   return render_template('groups.html', group = group)
 
 @app.route('/individual.html-<ind>-<individual>')
 def individual(ind,individual):
    t = (ind,individual)
    cur = con.cursor()
-   cur.execute("select * from ERV where repName=? and genoStart=?", t)
+   cur.execute("select * FROM ERV WHERE repName=? AND genoStart=?", t)
    ind = cur.fetchone()
    return render_template('individual.html', ind = ind)
 
@@ -50,7 +58,7 @@ def results():
       z='%'
    a = request.args.get('amino')
    cur = con.cursor()
-   cur.execute("select * from ERV where repFamily LIKE'"+w+"'and repName LIKE'"+x+"'and genoName LIKE'"+y+"'and strand LIKE'"+z+"'and (ORF1 LIKE'%"+a+"%' OR ORF2 LIKE'%"+a+"%' OR ORF3 LIKE'%"+a+"%')")
+   cur.execute("SELECT * FROM ERV WHERE repFamily LIKE'"+w+"'AND repName LIKE'"+x+"'AND genoName LIKE'"+y+"'AND strand LIKE'"+z+"'AND (ORF1 LIKE'%"+a+"%' OR ORF2 LIKE'%"+a+"%' OR ORF3 LIKE'%"+a+"%')")
    res = cur.fetchall()
    return render_template('results.html', res = res)
 
@@ -66,7 +74,7 @@ def resultsa():
    if y!="M":
       y='N'
    cur = con.cursor()
-   cur.execute("select * from ERV where ORF1 LIKE'"+w+"%' and ORF2 LIKE'"+x+"%' and ORF3 LIKE'"+y+"%'")
+   cur.execute("SELECT * FROM ERV WHERE ORF1 LIKE'"+w+"%' AND ORF2 LIKE'"+x+"%' AND ORF3 LIKE'"+y+"%'")
    res = cur.fetchall()
    return render_template('resultsa.html', res = res, x=x)
 
