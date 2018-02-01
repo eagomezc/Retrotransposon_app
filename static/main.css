@@ -8,6 +8,7 @@ body{
 }
 
 
+
 /*****
 HEADING
 *****/
@@ -43,10 +44,6 @@ h2 {
 /*****
 NAVIGATION
 *****/
-
-.hide {
-  display: none;
-}
 
 nav {
   text-align: right;
@@ -91,6 +88,7 @@ HOME FAMILIES PAGE
   border: 5px solid grey;
   margin: 150px 150px;
   margin-bottom: -10px;
+  text-align:justify;
 }
 
 /*****
@@ -101,6 +99,8 @@ DATABASE PAGE
   margin-top:-40px;
   font-size: 1em;
   margin-left: 10px;
+  margin-right: 20px;
+  text-align:justify;
 }
 
 
@@ -115,6 +115,9 @@ DATABASE PAGE
   margin-top:-40px;
   font-size: 1em;
   margin-left: 10px;
+  margin-right: 10px;
+  text-align:justify;
+
 }
 
 #herv h3 {
@@ -133,6 +136,7 @@ VISUALS
   margin-left: 0;
   padding: 0;
   list-style: none;
+  position: absolute;
 }
 
 #graphs li {
@@ -142,6 +146,7 @@ VISUALS
   margin: 2.5%;
   background-color: light-grey;
   color: black;
+  position: absolute;
 }
 
 
