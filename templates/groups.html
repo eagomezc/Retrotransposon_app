@@ -35,11 +35,11 @@
       </nav>
     </header>
 
-    
  {% if group %}
- <h3>{{group[0]["repName"]}}</h3>
-  <p> The available information for all the data that share this Repetition Name can be seen in the next table:</p>
- <table id="groups" class="stripe hover">
+ <h3 style="margin-left: 10px; font-size: 2em; padding-bottom: 0.5em;">{{group[0]["repName"]}}</h3>
+  <p style="margin-right: 10px; margin-top: -40px; margin-left: 10px; text-align: justify;"> The available information for all the data that share this Repetition Name can be seen in the next table:</p>
+<section style="margin-left:60px; margin-right:60px;"> 
+<table id="groups" class="stripe hover">
   <thead>
   <tr>
     <th>Repetition Name</th>
@@ -60,11 +60,12 @@
   </tr>
  {% endfor %} 
  </table>
+</section>
 
  {% else %}
  <h3>Query not found</h3>
  {% endif %} 
-    
+
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>
