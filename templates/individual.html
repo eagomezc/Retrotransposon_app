@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Farfalloni|Retrotransposons</title>
+    <link rel="stylesheet" href="static/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans+Condensed:300i|PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="static/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header>
+      <a href="index.html" id="group-name">
+        <h1>RETROtransposons</h1>
+        <h2>for everything retrotransposon-y</h2>
+      </a> 
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="database.html">Database</a></li>
+	  <li><a href="search.html">Search</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="help.html">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+   <div id="individual">
+ {% if ind and ind["repClass"]=="LINE"%}
+	<h3>{{ind["repName"]}}</h3>
+	<p>Chromosome: {{ind["genoName"]}} </p>
+	<p>Strand: {{ind["strand"]}} </p>
+        <p>Chromosome Location (start): {{ind["genoStart"]}}</p>
+        <p>Chromosome Location (end): {{ind["genoEnd"]}}</p>
+	<p>Retrotransposon Family: {{ind["repFamily"]}}</p>
+        <p>Retrotransposon Class: {{ind["repClass"]}}</p>
+        <p> Repetition Start: {{ind["repStart"]}}</p>
+        <p> Repetition End: {{ind["repEnd"]}}</p>
+        <p> Sequence: {{ind["sequence"]}}</p>
+        <p>ORF1: {{ind["ORF1"]}} </p>
+        <p>ORF2: {{ind["ORF2"]}} </p>
+        <p>ORF0: {{ind["ORF3"]}} </p>
+	<p> Insert image </p>
+ {% elif ind and ind["repClass"]=="LTR"%}
+        <h3>{{ind["repName"]}}</h3>
+	<p>Chromosome: {{ind["genoName"]}} </p>
+	<p>Strand: {{ind["strand"]}} </p>
+        <p>Chromosome Location (start): {{ind["genoStart"]}}</p>
+        <p>Chromosome Location (end): {{ind["genoEnd"]}}</p>
+	<p>Retrotransposon Family: {{ind["repFamily"]}}</p>
+        <p>Retrotransposon Class: {{ind["repClass"]}}</p>
+        <p> Repetition Start: {{ind["repStart"]}}</p>
+        <p> Repetition End: {{ind["repEnd"]}}</p>
+        <p> Sequence: {{ind["sequence"]}}</p>
+        <p>Gag Protein: {{ind["ORF1"]}} </p>
+        <p>Pol Protein: {{ind["ORF2"]}} </p>
+        <p>Env Protein: {{ind["ORF3"]}} </p>
+	<p> Insert image </p>
+ {% else %}
+ <h1>Register not found</h1>
+ {% endif %} 
+    </div>    
+
+
+     <footer>
+        <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
+        <p>Farfalloni 2018 &copy;</p>
+      </footer>
+    
+  </body>
+</html>
