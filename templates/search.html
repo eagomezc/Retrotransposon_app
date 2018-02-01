@@ -8,57 +8,6 @@
     <link rel="stylesheet" href="static/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-
-<style>
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: auto;
-}
-
-textarea {
-    width: 93.5%;
-    height: 200px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    word-wrap:break-word;
-}
-
-
-input[type=submit] {
-    width: 100%;
-    background-color: #9379d1;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #9379d1;
-}
-
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-.inv {
-    display: none;
-}
-
-</style>
-
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -75,89 +24,37 @@ div {
         </ul>
       </nav>
     </header>
-
-<h3 style="margin-left: 10px; font-size: 2em; margin-bottom: 10px"> Advanced Search </h3>
     
-<div id="primary">
-    <h3 style="font-size: 1.5em; padding-bottom:0.2em;" class="search-form">Search for a specific retrotransposon:</h3>
+    <h3 class="search-form">Search for a specific retrotransposon:</h3>
 
 <form action="{{url_for('results')}}"  method='get'>
  <label class="pep-seq">Retrotransposon name:</label>
-      <input type="text" name="repName" style="width:100%;">
+      <input type="text" name="repName">
+ <br></br>
  <label class="pep-seq">Chromosome:</label>
-     <select name="genoName" style="width:100%;">
-     <option value="">Select a chromosome</option>
-     <option value="chr1">Chromosome 1</option>
-     <option value="chr2">Chromosome 2</option>
-     <option value="chr3">Chromosome 3</option>
-     <option value="chr4">Chromosome 4</option>
-     <option value="chr5">Chromosome 5</option>
-     <option value="chr6">Chromosome 6</option>
-     <option value="chr7">Chromosome 7</option>
-     <option value="chr8">Chromosome 8</option>
-     <option value="chr9">Chromosome 9</option>
-     <option value="chr10">Chromosome 10</option>
-     <option value="chr11">Chromosome 11</option>
-     <option value="chr12">Chromosome 12</option>
-     <option value="chr13">Chromosome 13</option>
-     <option value="chr14">Chromosome 14</option>
-     <option value="chr15">Chromosome 15</option>
-     <option value="chr16">Chromosome 16</option>
-     <option value="chr17">Chromosome 17</option>
-     <option value="chr18">Chromosome 18</option>
-     <option value="chr19">Chromosome 19</option>
-     <option value="chr20">Chromosome 20</option>
-     <option value="chr21">Chromosome 21</option>
-     <option value="chr22">Chromosome 22</option>
-     <option value="chrX">Chromosome X</option>
-     <option value="chrY">Chromosome Y</option>
-     <option value="chrUn">Chromosome Unknown</option>
-     </select>		
+      <input type="text" name="genoName">
+ <br></br>
  <label class="pep-seq">Retrotransposon Family:</label>
-      <input type="text" name="repFamily" style="width:100%;">
+      <input type="text" name="repFamily">
+ <br></br>
  <label class="pep-seq">Strand:</label>
-      <select name="strand" style="width:100%;">
-      <option value="">Select a strand</option>
-      <option value="+">+</option>
-     <option value="-">-</option>
-     </select>	
+      <input type="text" name="strand">
+ <br></br>
  <label class="pep-seq">Amino Acid Sequence:</label>
-      <textarea name="amino"></textarea>
+      <input type="text" name="amino">
+ <br></br>
 <section class="searchone">
 <input type='submit' value='Submit' class="1stsearch">
-</section>
-</form>
-</div>
-  
-<div id="secondary">
-    <h3 style="font-size: 1.5em; padding-bottom:0.2em;" class="search-form">Show only the retrotransposons that contain:</h3>
-    <label class="pep-seq">Select a retrotransposon family:</label>
-
-    <select id="target" style="width:100%;">
-    <option value="">Select...</option>
-    <option value="LINE">LINE 1</option>
-    <option value="LTR">HERV</option>
-    </select> 
-
- <div id="LINE" class="inv">
- <label class="pep-seq">Select the amino acid sequences that you want to see:</label>
- <section class="tickbox">
 <style>
-  .tickbox {
-  padding-left: 30px;
+ .1stsearch {
+  padding: 30px;
 }
 </style>
-<form action="{{url_for('resultsa')}}"  method='get'>
-  <input type="checkbox" name="ORF1" value="M" checked><tag style="font-size: 1.2em"> ORF1<br>
-  <input type="checkbox" name="ORF2" value="M" checked> ORF2<br>
-  <input type="checkbox" name="ORF0" value="M" checked> ORF0<br>
-  <input type="hidden" name="repFamily2" value="LINE">
-  <input type="submit" value="Submit">
-</form>
 </section>
-</div>
- <div id="LTR" class="inv">
- <label class="pep-seq">Select the amino acid sequences that you want to see:</label>
+</form>
+
+    <h3 class="search-form">Show only the retrotransposon that contains:</h3>
+
 <section class="tickbox">
 <style>
   .tickbox {
@@ -165,31 +62,12 @@ div {
 }
 </style>
 <form action="{{url_for('resultsa')}}"  method='get'>
-  <input type="checkbox" name="ORF1" value="M" checked><tag style="font-size: 1.2em"> Gag Protein<br>
-  <input type="checkbox" name="ORF2" value="M" checked> Pol Protein<br>
-  <input type="checkbox" name="ORF0" value="M" checked> Env Protein<br>
-  <input type="hidden" name="repFamily2" value="LTR">
+  <input type="checkbox" name="ORF1" value="M" checked> ORF1 (LINE) or Gag (ERV)<br>
+  <input type="checkbox" name="ORF2" value="M" checked> ORF2 (LINE) or Pol (ERV)<br>
+  <input type="checkbox" name="ORF0" value="M" checked> ORF0 (LINE) or Env (ERV)<br>
   <input type="submit" value="Submit">
 </form>
 </section>
-</div>
-
-  <script>
-            document
-                .getElementById('target')
-                .addEventListener('change', function () {
-                    'use strict';
-                    var vis = document.querySelector('.vis'),   
-                        target = document.getElementById(this.value);
-                    if (vis !== null) {
-                        vis.className = 'inv';
-                    }
-                    if (target !== null ) {
-                        target.className = 'vis';
-                    }
-            });
-  </script>
-</div>
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>
