@@ -6,8 +6,18 @@
     <link rel="stylesheet" href="static/normalize.css">
     <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans+Condensed:300i|PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
+    <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <script>
+      $(document).ready(function(){
+      $('#groups').DataTable();
+      });
+    </script>
+
+</head>
+ 
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -26,11 +36,11 @@
     </header>
 
     
- <div id="groups">
  {% if group %}
  <h3>{{group[0]["repName"]}}</h3>
   <p> The available information for all the data that share this Repetition Name can be seen in the next table:</p>
-  <table>
+ <table id="groups" class="stripe hover">
+  <thead>
   <tr>
     <th>Repetition Name</th>
     <th>Chromosome</th> 
@@ -38,6 +48,7 @@
     <th>Chromosome Location</th>
     <th>Retrotransposon Family</th>
   </tr>
+   </thead>
 
  {% for re in group %}
   <tr>
@@ -48,12 +59,11 @@
     <td>{{re["repFamily"]}}</td>    
   </tr>
  {% endfor %} 
+ </table>
 
  {% else %}
  <h3>Query not found</h3>
  {% endif %} 
-  </div>    
-    
     
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
