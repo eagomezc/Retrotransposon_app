@@ -58,7 +58,7 @@ def results():
       z='%'
    a = request.args.get('amino')
    cur = con.cursor()
-   cur.execute("SELECT * FROM ERV WHERE repFamily LIKE'"+w+"'AND repName LIKE'"+x+"'AND genoName LIKE'"+y+"'AND strand LIKE'"+z+"'AND (ORF1 LIKE'%"+a+"%' OR ORF2 LIKE'%"+a+"%' OR ORF3 LIKE'%"+a+"%')")
+   cur.execute("SELECT * FROM ERV WHERE repFamily LIKE'"+w+"'AND repName LIKE'"+x+"'AND genoName LIKE'"+y+"%'AND strand LIKE'"+z+"'AND (ORF1 LIKE'%"+a+"%' OR ORF2 LIKE'%"+a+"%' OR ORF3 LIKE'%"+a+"%')")
    res = cur.fetchall()
    return render_template('results.html', res = res)
 
@@ -73,10 +73,11 @@ def resultsa():
    y = request.args.get('ORF0')
    if y!="M":
       y='N'
+   z = request.args.get('repFamily2')
    cur = con.cursor()
-   cur.execute("SELECT * FROM ERV WHERE ORF1 LIKE'"+w+"%' AND ORF2 LIKE'"+x+"%' AND ORF3 LIKE'"+y+"%'")
+   cur.execute("SELECT * FROM ERV WHERE repClass LIKE'"+z+"'AND ORF1 LIKE'"+w+"%' AND ORF2 LIKE'"+x+"%' AND ORF3 LIKE'"+y+"%'")
    res = cur.fetchall()
-   return render_template('resultsa.html', res = res, x=x)
+   return render_template('resultsa.html', res = res)
 
 @app.route('/tools.html')
 def tools():

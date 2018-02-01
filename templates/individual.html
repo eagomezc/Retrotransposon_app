@@ -26,15 +26,35 @@
     </header>
     
    <div id="individual">
- {% if ind %}
+ {% if ind and ind["repClass"]=="LINE"%}
 	<h3>{{ind["repName"]}}</h3>
 	<p>Chromosome: {{ind["genoName"]}} </p>
 	<p>Strand: {{ind["strand"]}} </p>
-	<p>Retrotransposon Family: {{ind["repFamily"]}} </p>
-        <p>Amino 1: {{ind["ORF1"]}} </p>
-        <p>Amino 2: {{ind["ORF2"]}} </p>
-        <p>Amino 3: {{ind["ORF3"]}} </p>
-        <p>Rest of the data </p>
+        <p>Chromosome Location (start): {{ind["genoStart"]}}</p>
+        <p>Chromosome Location (end): {{ind["genoEnd"]}}</p>
+	<p>Retrotransposon Family: {{ind["repFamily"]}}</p>
+        <p>Retrotransposon Class: {{ind["repClass"]}}</p>
+        <p> Repetition Start: {{ind["repStart"]}}</p>
+        <p> Repetition End: {{ind["repEnd"]}}</p>
+        <p> Sequence: {{ind["sequence"]}}</p>
+        <p>ORF1: {{ind["ORF1"]}} </p>
+        <p>ORF2: {{ind["ORF2"]}} </p>
+        <p>ORF0: {{ind["ORF3"]}} </p>
+	<p> Insert image </p>
+ {% elif ind and ind["repClass"]=="LTR"%}
+        <h3>{{ind["repName"]}}</h3>
+	<p>Chromosome: {{ind["genoName"]}} </p>
+	<p>Strand: {{ind["strand"]}} </p>
+        <p>Chromosome Location (start): {{ind["genoStart"]}}</p>
+        <p>Chromosome Location (end): {{ind["genoEnd"]}}</p>
+	<p>Retrotransposon Family: {{ind["repFamily"]}}</p>
+        <p>Retrotransposon Class: {{ind["repClass"]}}</p>
+        <p> Repetition Start: {{ind["repStart"]}}</p>
+        <p> Repetition End: {{ind["repEnd"]}}</p>
+        <p> Sequence: {{ind["sequence"]}}</p>
+        <p>Gag Protein: {{ind["ORF1"]}} </p>
+        <p>Pol Protein: {{ind["ORF2"]}} </p>
+        <p>Env Protein: {{ind["ORF3"]}} </p>
 	<p> Insert image </p>
  {% else %}
  <h1>Register not found</h1>
