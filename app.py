@@ -3,6 +3,7 @@
 #Import Classes:
 from flask import Flask, render_template, request
 import sqlite3 as sql
+from massapp import opener
 
 app = Flask(__name__)
 
@@ -81,8 +82,23 @@ def resultsa():
 
 @app.route('/tools.html')
 def tools():
-    return render_template('tools.html')
+    cur = con.cursor()
+    cur.execute("SELECT * from Fill")
+    rows=cur.fetchall()
+    return render_template('tools.html',rows=rows)
 
+@app.route('/resultsb.html')
+def resultsb():
+    mz=request.args.get('fasta')
+    head,seq=opener(mz)
+    cur = con.cursor()
+    for i in range(0,len(head)):
+        t=(head[i],seq[i])
+        cur.execute("INSERT INTO Fill (Amino,Tissue) VALUES (?,?)",t)
+        con.commit()
+    cur.execute("SELECT * from Fill")
+    rows=cur.fetchall()
+    return render_template('resultsb.html',rows=rows)
 
 @app.route('/help.html')
 def help():

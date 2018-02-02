@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="static/normalize.css">
     <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans+Condensed:300i|PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
-   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
     <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -15,7 +15,8 @@
       $('#resultsb').DataTable();
       });
     </script>
-  </head>
+
+</head>
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -27,21 +28,14 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="database.html">Database</a></li>
           <li><a href="search.html">Search</a></li>
-          <li><a href="tools.html" class="selected">Tools</a></li>
+          <li><a href="tools.html">Tools</a></li>
           <li><a href="help.html">Help</a></li>
         </ul>
       </nav>
     </header>
-   
-  <h3 class="upload-form">Upload a file of peptide identifications (mzTab or mzldentML format only):</h3>
-  <form action="/resultsb.html" method="get">
-    <input type="file" name="fasta" accept="file_extension|fasta/*">
-    <input type="submit">
-  </form>
+    
 
-<h3>ATLAS</h3>
-
- <section style="margin-left:60px; margin-right:60px;">
+  <section style="margin-left:60px; margin-right:60px;">
   <table id="resultsb">
   <thead>
   <tr>
@@ -58,11 +52,11 @@
  {% endfor %}
  </table> 
 </section>
-
+    
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>
       </footer>
-   
+    
   </body>
 </html>
