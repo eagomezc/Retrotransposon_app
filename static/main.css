@@ -80,7 +80,7 @@ HOME FAMILIES PAGE
 *****/
 
 #family {
-  padding-top: 20px;
+  padding-top: 0;
   text-align: center;
   font-size: 2.1em;
   padding-bottom: 10px; 
@@ -183,12 +183,41 @@ tr:nth-child(even) {
 
 
 /*****
-GROUPS PAGE
+INDIVIDUAL PAGE
 *****/
 
 
+#individual h3 {
+  text-align: left;
+  font-size: 2em ;
+  margin-left: 10px;
+  padding-bottom: 0.5em;
+}
 
+#individual ul  {
+  list-style: none;
+  padding: 3px;
+  margin: 0 10px;
+}
 
+#individual li  {
+  margin-top:-40px;
+  font-size: 1em;
+  text-align:justify;
+  padding: 5px;
+}
+
+#content {
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 3.6em;
+  line-height: 1.2em;
+  width: 300px;
+}
+
+#more:checked + div {
+  height: auto;
+}
 
 /*****
 SEARCH PAGE

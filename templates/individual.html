@@ -25,37 +25,62 @@
       </nav>
     </header>
     
+
+    <style>
+    #content {
+      word-wrap: break-word;
+      overflow: hidden;
+      height: 3.6em;
+      line-height: 1.2em;
+      width: 300px;
+     }
+
+    #more:checked + div {
+      height: auto;
+    }
+   </style>
+
    <div id="individual">
  {% if ind and ind["repClass"]=="LINE"%}
-	<h3>{{ind["repName"]}}</h3>
-	<p>Chromosome: {{ind["genoName"]}} </p>
-	<p>Strand: {{ind["strand"]}} </p>
-        <p>Chromosome Location (start): {{ind["genoStart"]}}</p>
-        <p>Chromosome Location (end): {{ind["genoEnd"]}}</p>
-	<p>Retrotransposon Family: {{ind["repFamily"]}}</p>
-        <p>Retrotransposon Class: {{ind["repClass"]}}</p>
-        <p> Repetition Start: {{ind["repStart"]}}</p>
-        <p> Repetition End: {{ind["repEnd"]}}</p>
-        <p> Sequence: {{ind["sequence"]}}</p>
-        <p>ORF1: {{ind["ORF1"]}} </p>
-        <p>ORF2: {{ind["ORF2"]}} </p>
-        <p>ORF0: {{ind["ORF3"]}} </p>
-	<p> Insert image </p>
+	<h3 style="font-size: 2em; margin-left: 30px;">{{ind["repName"]}}</h3>
+	<ul style="list-style: none;">
+	<li>Chromosome: {{ind["genoName"]}} </li>
+	<li>Strand: {{ind["strand"]}} </li>
+        <li>Chromosome Location (start): {{ind["genoStart"]}}</li>
+        <li>Chromosome Location (end): {{ind["genoEnd"]}}</li>
+	<li>Retrotransposon Family: {{ind["repFamily"]}}</li>
+        <li>Retrotransposon Class: {{ind["repClass"]}}</li>
+        <li> Repetition Start: {{ind["repStart"]}}</li>
+        <li> Repetition End: {{ind["repEnd"]}}</li>
+	<label>
+  	<input id="more" type="checkbox">Sequence:
+  	<div id="content">{{ind["sequence"]}}</div>
+	</label>	
+	<li>ORF1: {{ind["ORF1"]}} </li>
+        <li>ORF2: {{ind["ORF2"]}} </li>
+        <li>ORF0: {{ind["ORF3"]}} </li>
+	<li> Insert image </li>
+	</ul>
  {% elif ind and ind["repClass"]=="LTR"%}
-        <h3>{{ind["repName"]}}</h3>
-	<p>Chromosome: {{ind["genoName"]}} </p>
-	<p>Strand: {{ind["strand"]}} </p>
-        <p>Chromosome Location (start): {{ind["genoStart"]}}</p>
-        <p>Chromosome Location (end): {{ind["genoEnd"]}}</p>
-	<p>Retrotransposon Family: {{ind["repFamily"]}}</p>
-        <p>Retrotransposon Class: {{ind["repClass"]}}</p>
-        <p> Repetition Start: {{ind["repStart"]}}</p>
-        <p> Repetition End: {{ind["repEnd"]}}</p>
-        <p> Sequence: {{ind["sequence"]}}</p>
-        <p>Gag Protein: {{ind["ORF1"]}} </p>
-        <p>Pol Protein: {{ind["ORF2"]}} </p>
-        <p>Env Protein: {{ind["ORF3"]}} </p>
-	<p> Insert image </p>
+        <h3 style= "font-size: 2em; margin-left: 30px; padding-bottom: 0.5em;">{{ind["repName"]}}</h3>
+	<ul style="list-style: none;">
+	<li>Chromosome: {{ind["genoName"]}} </p>
+	<li>Strand: {{ind["strand"]}} </p>
+        <li>Chromosome Location (start): {{ind["genoStart"]}}</li>
+        <li>Chromosome Location (end): {{ind["genoEnd"]}}</li>
+	<li>Retrotransposon Family: {{ind["repFamily"]}}</li>
+        <li>Retrotransposon Class: {{ind["repClass"]}}</li>
+        <li> Repetition Start: {{ind["repStart"]}}</li>
+        <li> Repetition End: {{ind["repEnd"]}}</li>
+	<label>
+        <input id="more" type="checkbox">Sequence:
+        <div id="content">{{ind["sequence"]}}</div>
+        </label>
+        <li>Gag Protein: {{ind["ORF1"]}} </li>
+        <li>Pol Protein: {{ind["ORF2"]}} </li>
+        <li>Env Protein: {{ind["ORF3"]}} </li>
+	<li> Insert image </li>
+ 	</ul>
  {% else %}
  <h1>Register not found</h1>
  {% endif %} 
