@@ -87,7 +87,7 @@ HOME FAMILIES PAGE
   border: 5px solid grey;
   margin: 150px 150px;
   margin-bottom: -10px;
-  text-align:justify;
+
 }
 
 /*****
@@ -135,7 +135,7 @@ VISUALS
   margin-left: 0;
   padding: 0;
   list-style: none;
-  position: absolute;
+ 
 }
 
 #graphs li {
@@ -145,7 +145,7 @@ VISUALS
   margin: 2.5%;
   background-color: light-grey;
   color: black;
-  position: absolute;
+
 }
 
 
@@ -193,28 +193,6 @@ GROUPS PAGE
 /*****
 SEARCH PAGE
 *****/
-
-
-input[type=text] {
-  margin-left: 30px;
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-    width: 70%;
-}
-
 
 .search-form {
   padding-left: 30px;
