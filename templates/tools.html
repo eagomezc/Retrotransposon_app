@@ -52,7 +52,7 @@
 
  {% for re in rows %}
   <tr>
-    <td>{{re["Amino"]}}</td>
+    <td><a href="amino.html-{{re["Amino"]}}">{{re["Amino"]}}<a></td>
     <td>{{re["Tissue"]}}</td>    
   </tr>
  {% endfor %}

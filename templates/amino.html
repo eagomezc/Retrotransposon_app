@@ -10,8 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
     <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <script>
+      $(document).ready(function(){
+      $('#amino').DataTable();
+      });
+    </script>
 
 </head>
+ 
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -28,36 +34,12 @@
         </ul>
       </nav>
     </header>
-    
- {% if amino|length != 0 %}
-  <h3> Results found: </h3>
- {% for l in range(0,amino|length) %}
-  <h3> Sequence {{amino[l]}} in Tissue {{tissue[l]}} </h3>
-  {% if fills[l]!="" %}
-  <h3> There is a match in the ATLAS </h3>
-  <section style="margin-left:60px; margin-right:60px;">
-  <table id="tableind">
-  <thead>
-  <tr>
-    <th>Amino Sequence</th>
-    <th>Tissue</th> 
-  </tr>
-  </thead>
-  <tr>
-    <td><a href="amino.html-{{fills[l]["Amino"]}}">{{fills[l]["Amino"]}}</a></td>
-    <td>{{fills[l]["Tissue"]}}</td>    
-  </tr>
- </table> 
- </section>
- {% else %}
-    <script>
-      $(document).ready(function(){
-      $('#datas{{l}}').DataTable();
-      });
-    </script>
- <h3> There is at least a match in the RETROTRASPOSON DATABASE </h3>
-  <section style="margin-left:60px; margin-right:60px;">
-  <table id="datas{{l}}">
+
+ {% if group %}
+ <h3 style="margin-left: 10px; font-size: 2em; padding-bottom: 0.5em;">{{w}}</h3>
+  <p style="margin-right: 10px; margin-top: -40px; margin-left: 10px; text-align: justify;"> The available information for all the data that contain this amino acid sequence can be seen in the next table:</p>
+<section style="margin-left:60px; margin-right:60px;"> 
+<table id="amino" class="stripe hover">
   <thead>
   <tr>
     <th>Repetition Name</th>
@@ -66,25 +48,24 @@
     <th>Chromosome Location</th>
     <th>Retrotransposon Family</th>
   </tr>
-  </thead>
+   </thead>
 
- {% for ree in ress[l] %}
+ {% for re in group %}
   <tr>
-    <td><a href="individual.html-{{ree["repName"]}}-{{ree["genoStart"]}}">{{ree["repName"]}}</a></td>
-    <td>{{ree["genoName"]}}</td>
-    <td>{{ree["strand"]}}</td>
-    <td>{{ree["genoStart"]}}</td>
-    <td>{{ree["repFamily"]}}</td>    
+    <td><a href="individual.html-{{re["repName"]}}-{{re["genoStart"]}}">{{re["repName"]}}</a></td>
+    <td>{{re["genoName"]}}</td>
+    <td>{{re["strand"]}}</td>
+    <td>{{re["genoStart"]}}</td>
+    <td>{{re["repFamily"]}}</td>    
   </tr>
  {% endfor %} 
-  </table>
+ </table>
 </section>
- {% endif %}
- {% endfor %}
-{% else %}
- <h3>Matches not found</h3>
+
+ {% else %}
+ <h3>Query not found</h3>
  {% endif %} 
-    
+
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>

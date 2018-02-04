@@ -87,18 +87,43 @@ def tools():
     rows=cur.fetchall()
     return render_template('tools.html',rows=rows)
 
+@app.route('/amino.html-<aa>')
+def amino(aa):
+   w=aa
+   cur = con.cursor()
+   cur.execute("SELECT * FROM ERV WHERE ORF1 LIKE'%"+w+"%' OR ORF2 LIKE'%"+w+"%' OR ORF3 LIKE'%"+w+"%'")
+   group = cur.fetchall()
+   return render_template('amino.html', group = group, w=w)
+
 @app.route('/resultsb.html')
 def resultsb():
     mz=request.args.get('fasta')
     head,seq=opener(mz)
+    amino=[]
+    tissue=[]
+    fills=[]
+    ress=[]
     cur = con.cursor()
     for i in range(0,len(head)):
-        t=(head[i],seq[i])
-        cur.execute("INSERT INTO Fill (Amino,Tissue) VALUES (?,?)",t)
-        con.commit()
-    cur.execute("SELECT * from Fill")
-    rows=cur.fetchall()
-    return render_template('resultsb.html',rows=rows)
+        t=(seq[i],head[i])
+	cur.execute("SELECT * FROM Fill WHERE Amino LIKE'"+seq[i]+"'AND Tissue LIKE'"+head[i]+"'")
+        fill=cur.fetchone()
+        if fill:
+           amino.append(seq[i])
+           tissue.append(head[i])
+           fills.append(fill)
+           ress.append("")
+        else:
+           cur.execute("SELECT * FROM ERV WHERE ORF1 LIKE'%"+seq[i]+"%' OR ORF2 LIKE'%"+seq[i]+"%' OR ORF3 LIKE'%"+seq[i]+"%'")
+           res = cur.fetchall()
+           if res:
+              amino.append(seq[i])
+              tissue.append(head[i])
+              ress.append(res)
+              fills.append("")
+              cur.execute("INSERT INTO Fill (Amino,Tissue) VALUES (?,?)",t)
+              con.commit()
+    return render_template('resultsb.html',ress=ress, fills=fills, amino=amino, tissue=tissue)
 
 @app.route('/help.html')
 def help():
