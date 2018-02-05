@@ -24,21 +24,47 @@
         </ul>
       </nav>
     </header>
-    <div id="contact-us">
-        <img src="static/team.jpg" alt="Farfalloni group picture" class="group-pic">
-      <section id="primary">
-        <h3>About us</h3>
-        <p>We are a group of MSc Bioinformatics students who have developed this website as a means of finding out retrotransposon related information</p>
-      </section>
-      <section id="secondary">
-        <h3>Contact us</h3>
-        <ul class="contact-info">
+    <style>
+     div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 10px;
+  }
+  </style>
+
+
+    <div id="primary">
+    <section id="info">
+    <h3>About us</h3>
+    <img src="static/team.jpg" alt="Farfalloni group picture" class="group-pic">
+    <p>We are a group of MSc Bioinformatics students who have developed this website as a means of finding out retrotransposon related information</p>
+    <h3>contact us</h3>
+    <ul class="contact-info">
           <li class="phone"><a href="tel:0208-745-1634">0208-745-1634</a></li>
           <li class="mail"><a href="mailto:farfalloni@hotmail.co.uk">farfalloni@hotmail.co.uk</a></li>
           <li class="github"><a href="https://github.com/eagomezc/Farfalloni">https://github.com/eagomezc/Farfalloni</a></li>
-        </ul> 
-      </section>
+        </ul>
     </div>
+
+    <div id="secondary">
+    <h3> Website information: </h3>
+    <p> This website is useful for the exploration of retrotransposons and their properties. Navigate your way through this website to learn about the different properties each retrotransposon has,$
+    <p> The data used to compile this database was generated using information from the UCSC Table
+Browser and tabulated using MySQL/sqlite3. </p>
+    <h3> Glossary: </h3>
+    <p> Retrotransposon: a transposon whose sequence shows homology with that of a retrovirus. </p>
+    <p> Open reading frame (ORF): a continuous stretch of codons that contain a start codon (usually AUG) and a stop codon (usually UAA, UAG or UGA). </p>
+    <p> Line-1:  are transposable elements in the DNA of some organisms and belong to the group of Long interspersed nuclear elements (LINEs). </p>
+    <p> HERV: Endogenous retroviruses are the most important LTR retrotransposons in mammals, including humans where the Human ERVs make up 8% of the genome. </p>
+    <h3> Useful links: </h3>
+    <ul class="links">
+      <li><a href="https://genome.ucsc.edu/">USCS table browser to raw data </a></li>
+      <li><a href="https://plot.ly/"> Plotly for interactive graphs</a></li>
+    </ul>
+    </section>
+    </div>
+
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>
