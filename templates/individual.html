@@ -30,78 +30,130 @@
     #content {
       word-wrap: break-word;
       overflow: hidden;
-      height: 3.6em;
-      line-height: 1.2em;
-      width: 300px;
+      height: 2em;
+      line-height: 1em;
+      width: 450px;
      }
 
     #more:checked + div {
       height: auto;
     }
+
+    h4 {
+      font-size: 1.3em;
+      line-height: 0px;
+    }
+   
+    p {
+      font-size: 1em;
+      line-height: 0px;
+    }
+
+    #individuall1 {
+      margin-left: 50px;
+    }
+
+    #individualherv {
+      margin-right: 50px;
+    }
+
+    .posi {
+    position: relative;
+    width: 50%;
+    border: 3px solid #240942;
+    margin-top: 30px;
+    margin-left: 300px;
+}
+
    </style>
 	  
-<div id="individuall1">
  {% if ind and ind["repClass"]=="LINE"%}
-        <h3 style="font-size: 2em; margin-left: 30px;">{{ind["repName"]}}</h3>
+        <h3 style="font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
+<div id="individuall1">
+<section id="primary">
 	<h4>Chromosome:</h4>
         <p>{{ind["genoName"]}} </p>
         <h4>Strand:</h4>
         <p>{{ind["strand"]}} </p>
-        <h4>Chromosome Location (start):</h4>
-        <p>{{ind["genoStart"]}}</p>
-        <h4>Chromosome Location (end): </h4>
-        <p>{{ind["genoEnd"]}}</p>
+        <h4>Chromosome Location: </h4>
+	<p>Start: {{ind["genoStart"]}}</p>
+        <p>End: {{ind["genoEnd"]}}</p>
         <h4>Retrotransposon Family:</h4>
         <p>{{ind["repFamily"]}}</p>
         <h4>Retrotransposon Class: </h4>
         <p>{{ind["repClass"]}}</p>
-        <h4> Repetition Start:</h4>
-        <p>{{ind["repStart"]}}</p>
-        <h4> Repetition End: </h4>
-        <p>{{ind["repEnd"]}}</p>
+        <h4> Repetition:</h4>
+        <p> Start: {{ind["repStart"]}}</p>
+        <p> End: {{ind["repEnd"]}}</p>
+</section>
+<section id="secondary">
         <label>
-        <input id="more" type="checkbox"> Sequence:
+	<h4> Sequence: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
         <div id="content">{{ind["sequence"]}}</div>
         </label>
-        <h4>ORF1: </h4>
-        <p>{{ind["ORF1"]}} </p>
-        <h4>ORF2: </h4>
-        <p>{{ind["ORF2"]}} </p>
-        <h4>ORF0: </h4>
-        <p>{{ind["ORF3"]}} </p>
-        <h4> Insert image <h4>
+	<label>
+        <h4> ORF1: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
+        <div id="content">{{ind["ORF1"]}}</div>
+        </label>
+        <label>
+        <h4> ORF2: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
+        <div id="content">{{ind["ORF2"]}}</div>
+        </label>
+        <label>
+        <h4> ORF0: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
+        <div id="content">{{ind["ORF3"]}}</div>
+	</label>
+	</section>
      </div>
-	   
-<div id="individualherv">
+<img src="static/indi.png" class="posi">
+
   {% elif ind and ind["repClass"]=="LTR"%}
-        <h3 style= "font-size: 2em; margin-left: 30px; padding-bottom: 0.5em;">{{ind["repName"]}}</h3>
+        <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
+<div id="individualherv">
+<section id="primary">
         <h4>Chromosome:</h4>
         <p> {{ind["genoName"]}} </p>
         <h4>Strand: </h4>
         <p>{{ind["strand"]}} </p>
-        <h4>Chromosome Location (start):</h4>
-        <p> {{ind["genoStart"]}}</p>
-        <h4>Chromosome Location (end): </h4>
-        <p>{{ind["genoEnd"]}}</p>
+        <h4>Chromosome Location: </h4>
+        <p>Start: {{ind["genoStart"]}}</p>
+        <p>End: {{ind["genoEnd"]}}</p>
         <h4>Retrotransposon Family: </h4>
         <p> {{ind["repFamily"]}}</p>
         <h4>Retrotransposon Class: </h4>
         <p> {{ind["repClass"]}}</p>
-        <h4> Repetition Start:</h4>
-        <p> {{ind["repStart"]}}</p>
-        <h4> Repetition End: </h4>
-        <p> {{ind["repEnd"]}}</p>
-        <label>
-        <input id="more" type="checkbox"> Sequence:
+        <h4> Repetition:</h4>
+        <p> Start: {{ind["repStart"]}}</p>
+        <p> End: {{ind["repEnd"]}}</p>
+        </section>
+<section id="secondary">
+	<label>
+        <h4> Sequence: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
         <div id="content">{{ind["sequence"]}}</div>
         </label>
-        <h4>Gag Protein:</h4>
-        <p> {{ind["ORF1"]}} </p>
-        <h4>Pol Protein:</h4>
-        <p> {{ind["ORF2"]}} </p>
-        <h4>Env Protein: </h4>
-        <p> {{ind["ORF3"]}} </p>
-        <h4> Insert image </h4>
+	<label>
+	<h4> Gag Protein: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
+        <div id="content">{{ind["ORF1"]}}</div>
+        </label>
+	<label>
+        <h4> Pol protein: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
+        <div id="content">{{ind["ORF2"]}}</div>
+        </label>
+	<label>
+        <h4> Env Protein: </h4>
+        <input id="more" type="checkbox"> Click for complete sequence
+        <div id="content">{{ind["sequence"]}}</div>
+        </label>
+	</section>
+<img src="static/indi.png" class="posi">
+
  {% else %}
  <h1>Register not found</h1>
  {% endif %}
