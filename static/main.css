@@ -116,7 +116,6 @@ DATABASE PAGE
   margin-left: 10px;
   margin-right: 10px;
   text-align:justify;
-
 }
 
 #herv h3 {
@@ -186,39 +185,6 @@ tr:nth-child(even) {
 INDIVIDUAL PAGE
 *****/
 
-
-#individual h3 {
-  text-align: left;
-  font-size: 2em ;
-  margin-left: 10px;
-  padding-bottom: 0.5em;
-}
-
-#individual ul  {
-  list-style: none;
-  padding: 3px;
-  margin: 0 10px;
-}
-
-#individual li  {
-  margin-top:-40px;
-  font-size: 1em;
-  text-align:justify;
-  padding: 5px;
-}
-
-#content {
-  word-wrap: break-word;
-  overflow: hidden;
-  height: 3.6em;
-  line-height: 1.2em;
-  width: 300px;
-}
-
-#more:checked + div {
-  height: auto;
-}
-
 /*****
 SEARCH PAGE
 *****/
@@ -257,16 +223,32 @@ HELP PAGE
 
 .group-pic {
   display:block;
-  max-width: 500px;
+  max-width: 300px;
+  max-height: 300px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 50%;
+  border-radius: 0%;
 }
 
-#contact-us > h3 {
+#info > h3 {
   margin: 0  0 1em 0;
+  color: grey;
 }
 
+
+.links {
+  list-style: none;
+}
+
+.links li {
+  list-style: none;
+}
+
+.links a {
+  list-style: none;
+  font-size: 1em;
+  
+}
 
 .contact-info {
   list-style: none;
@@ -281,21 +263,26 @@ HELP PAGE
   background-repeat:no-repeat;
   background-size: 20px 20px;
   padding: 0 0 0 30px;
+  font-size: 1em;
 }
 
 .contact-info a li {
   float:center;
+  font-size: 1em;
 }
 
 .contact-info li.phone a{
+  font-size: 1.2em;
   background-image:url('../static/phone.png');
 }
 
 .contact-info li.mail a{
+  font-size: 1.2em;
   background-image:url('../static/mail.png');
 }
 
 .contact-info li.github a{
+  font-size: 1.2em;
   background-image:url('../static/octocat.png');
 }
 
