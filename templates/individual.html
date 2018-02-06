@@ -61,8 +61,21 @@
     position: relative;
     width: 50%;
     border: 3px solid #240942;
-    margin-top: 30px;
-    margin-left: 300px;
+    margin: 30px;
+    }
+
+
+
+#backbutton a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border: grey solid 2px;
+}
+
+.previous {
+    background-color: #9379d1;
+    color: black;
 }
 
    </style>
@@ -110,6 +123,9 @@
 	</section>
      </div>
 <img src="static/indi.png" class="posi">
+<section id="backbutton">
+<center> <a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a> </center>
+</section>
 
   {% elif ind and ind["repClass"]=="LTR"%}
         <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
@@ -152,12 +168,15 @@
         <div id="content">{{ind["sequence"]}}</div>
         </label>
 	</section>
+	</div>
 <img src="static/indi.png" class="posi">
+<section id="backbutton">
+<center> <a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a> </center>
+</section>
 
  {% else %}
- <h1>Register not found</h1>
+ <h1 style="margin-left: 10px;">Register not found</h1>
  {% endif %}
-    </div>    
  
 
 
