@@ -110,7 +110,6 @@ def resultsb():
         fill=cur.fetchone()
         if fill:
            amino.append(seq[i])
-           #tissue.append(head[i])
            fills.append(fill)
            ress.append("")
         else:
@@ -118,7 +117,6 @@ def resultsb():
            res = cur.fetchall()
            if res:
               amino.append(seq[i])
-              #tissue.append(head[i])
               ress.append(res)
               fills.append("")
               cur.execute("INSERT INTO Fill (Amino,Tissue) VALUES (?,?)",t)
