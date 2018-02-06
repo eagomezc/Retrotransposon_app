@@ -16,6 +16,13 @@
       });
     </script>
   </head>
+
+<style>
+.inv {
+    display: none;
+}
+</style>
+
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -32,16 +39,52 @@
         </ul>
       </nav>
     </header>
+
+<div>
+
+    <h3 style="font-size: 1.5em; padding-bottom:0.2em;" class="search-form">Choose the kind of file that you are going to use:</h3>
+
+    <select id="target" style="width:100%;">
+    <option value="">Select...</option>
+    <option value="mzl">mzldentML</option>
+    <option value="mzt">mzTab</option>
+    </select> 
    
-  <h3 class="upload-form">Upload a file of peptide identifications (mzTab or mzldentML format only):</h3>
+  <div id="mzl" class="inv">
   <form action="/resultsb.html" method="get">
     <input type="file" name="mzidentml" accept="file_extension|mzid/*">
     <label class="pep-seq">Please type the source (tissue) of the sample (Obligatory field):</label>
       <input type="text" name="tissue">
    <input type='submit' value='Submit' class="1stsearch">
   </form>
+  </div>
+  
+  <div id="mzt" class="inv">
+  <form action="/resultsb.html" method="get">
+    <input type="file" name="mzTab" accept="file_extension|mzTab/*">
+    <label class="pep-seq">Please type the source (tissue) of the sample (Obligatory field):</label>
+      <input type="text" name="tissue">
+   <input type='submit' value='Submit' class="1stsearch">
+  </form>
+  </div>
+</div>
+  <script>
+            document
+                .getElementById('target')
+                .addEventListener('change', function () {
+                    'use strict';
+                    var vis = document.querySelector('.vis'),   
+                        target = document.getElementById(this.value);
+                    if (vis !== null) {
+                        vis.className = 'inv';
+                    }
+                    if (target !== null ) {
+                        target.className = 'vis';
+                    }
+            });
+  </script>
 
-<h3>{{mz}}</h3>
+<h3>ATLAS</h3>
 
  <section style="margin-left:60px; margin-right:60px;">
   <table id="resultsb">

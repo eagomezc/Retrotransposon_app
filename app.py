@@ -3,7 +3,7 @@
 #Import Classes:
 from flask import Flask, render_template, request
 import sqlite3 as sql
-from massapp import mzidentml
+from massapp import mzidentml, mztab
 
 app = Flask(__name__)
 
@@ -97,9 +97,13 @@ def amino(aa):
 
 @app.route('/resultsb.html')
 def resultsb():
-    mz=request.args.get('mzidentml')
+    ml=request.args.get('mzidentml')
+    mt=request.args.get('mzTab')
     tissue=request.args.get('tissue')
-    seq=mzidentml(mz)
+    if ml==None:
+       seq=mztab(mt)
+    else:
+       seq=mzidentml(ml)
     amino=[]
     fills=[]
     ress=[]
