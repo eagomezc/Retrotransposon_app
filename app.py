@@ -3,7 +3,7 @@
 #Import Classes:
 from flask import Flask, render_template, request
 import sqlite3 as sql
-from massapp import opener
+from massapp import mzidentml
 
 app = Flask(__name__)
 
@@ -97,20 +97,20 @@ def amino(aa):
 
 @app.route('/resultsb.html')
 def resultsb():
-    mz=request.args.get('fasta')
-    head,seq=opener(mz)
+    mz=request.args.get('mzidentml')
+    tissue=request.args.get('tissue')
+    seq=mzidentml(mz)
     amino=[]
-    tissue=[]
     fills=[]
     ress=[]
     cur = con.cursor()
-    for i in range(0,len(head)):
-        t=(seq[i],head[i])
-	cur.execute("SELECT * FROM Fill WHERE Amino LIKE'"+seq[i]+"'AND Tissue LIKE'"+head[i]+"'")
+    for i in range(0,len(seq)):
+        t=(seq[i],tissue)
+	cur.execute("SELECT * FROM Fill WHERE Amino LIKE'"+seq[i]+"'AND Tissue LIKE'"+tissue+"'")
         fill=cur.fetchone()
         if fill:
            amino.append(seq[i])
-           tissue.append(head[i])
+           #tissue.append(head[i])
            fills.append(fill)
            ress.append("")
         else:
@@ -118,7 +118,7 @@ def resultsb():
            res = cur.fetchall()
            if res:
               amino.append(seq[i])
-              tissue.append(head[i])
+              #tissue.append(head[i])
               ress.append(res)
               fills.append("")
               cur.execute("INSERT INTO Fill (Amino,Tissue) VALUES (?,?)",t)

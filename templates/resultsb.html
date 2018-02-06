@@ -28,11 +28,11 @@
         </ul>
       </nav>
     </header>
-    
- {% if amino|length != 0 %}
+
+{% if amino|length != 0 %}
   <h3> Results found: </h3>
  {% for l in range(0,amino|length) %}
-  <h3> Sequence {{amino[l]}} in Tissue {{tissue[l]}} </h3>
+  <h3> Sequence {{amino[l]}} in Tissue {{tissue}} </h3>
   {% if fills[l]!="" %}
   <h3> There is a match in the ATLAS </h3>
   <section style="margin-left:60px; margin-right:60px;">
@@ -45,7 +45,7 @@
   </thead>
   <tr>
     <td><a href="amino.html-{{fills[l]["Amino"]}}">{{fills[l]["Amino"]}}</a></td>
-    <td>{{fills[l]["Tissue"]}}</td>    
+    <td>{{tissue}}</td>    
   </tr>
  </table> 
  </section>
@@ -85,6 +85,7 @@
  <h3>Matches not found</h3>
  {% endif %} 
     
+
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>

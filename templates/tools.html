@@ -35,11 +35,13 @@
    
   <h3 class="upload-form">Upload a file of peptide identifications (mzTab or mzldentML format only):</h3>
   <form action="/resultsb.html" method="get">
-    <input type="file" name="fasta" accept="file_extension|fasta/*">
-    <input type="submit">
+    <input type="file" name="mzidentml" accept="file_extension|mzid/*">
+    <label class="pep-seq">Please type the source (tissue) of the sample (Obligatory field):</label>
+      <input type="text" name="tissue">
+   <input type='submit' value='Submit' class="1stsearch">
   </form>
 
-<h3>ATLAS</h3>
+<h3>{{mz}}</h3>
 
  <section style="margin-left:60px; margin-right:60px;">
   <table id="resultsb">
