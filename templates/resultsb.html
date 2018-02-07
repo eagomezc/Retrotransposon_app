@@ -10,8 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
     <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
 </head>
+
+<style>
+ .res {
+ padding-left: 10px;
+}
+</style>
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -29,8 +34,9 @@
       </nav>
     </header>
 
+<section class="res">
 {% if amino|length != 0 %}
-  <h3> Results found: </h3>
+  <h3 style="font-size: 2em;"> Results found: </h3>
  {% for l in range(0,amino|length) %}
   <h3> Sequence {{amino[l]}} in Tissue {{tissue}} </h3>
   {% if fills[l]!="" %}
@@ -84,7 +90,7 @@
 {% else %}
  <h3>Matches not found</h3>
  {% endif %} 
-    
+    </section>
 
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
