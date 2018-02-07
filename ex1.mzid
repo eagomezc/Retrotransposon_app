@@ -71,7 +71,7 @@
       <cvParam accession="MS:1001088" name="protein description" cvRef="PSI-MS" value="CA021 Candida albicans cDNA library Candida albicans                                         cDNA 3&apos;, mRNA sequence" />
     </DBSequence>
     <Peptide id="peptide_1_1">
-      <PeptideSequence>TKMGKKQNRKTGNSKTQ</PeptideSequence>
+      <PeptideSequence>CLRII</PeptideSequence>
     </Peptide>
     <Peptide id="peptide_2_1">
       <PeptideSequence>SSSPATEQSWMENDFDELREEG</PeptideSequence>

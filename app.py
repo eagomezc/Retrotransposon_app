@@ -117,7 +117,7 @@ def resultsb():
            fills.append(fill)
            ress.append("")
         else:
-           cur.execute("SELECT repName, genoName, genoStart, repFamily FROM ERV WHERE ORF1 LIKE'%"+seq[i]+"%' OR ORF2 LIKE'%"+seq[i]+"%' OR ORF3 LIKE'%"+seq[i]+"%'")
+           cur.execute("SELECT * FROM ERV WHERE ORF1 LIKE'%"+seq[i]+"%' OR ORF2 LIKE'%"+seq[i]+"%' OR ORF3 LIKE'%"+seq[i]+"%'")
            res = cur.fetchall()
            if res:
               amino.append(seq[i])
