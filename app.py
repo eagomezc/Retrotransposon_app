@@ -17,9 +17,9 @@ def index():
 @app.route('/database.html')
 def database():
    cur = con.cursor()
-   cur.execute("SELECT DISTINCT repName FROM ERV WHERE repClass='LINE'")
+   cur.execute("SELECT DISTINCT repName, count(*) FROM ERV WHERE repClass='LINE' GROUP BY repName") 
    l1s = cur.fetchall()
-   cur.execute("select DISTINCT repName FROM ERV WHERE repClass='LTR'")
+   cur.execute("select DISTINCT repName, count(*) FROM ERV WHERE repClass='LTR' GROUP BY repName")
    ltrs = cur.fetchall()
    return render_template("database.html",l1s = l1s,ltrs=ltrs)
 
