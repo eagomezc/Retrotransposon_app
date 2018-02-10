@@ -4,6 +4,7 @@
 from flask import Flask, render_template, request
 import sqlite3 as sql
 from massapp import mzidentml, mztab
+from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage as STAP
 
 app = Flask(__name__)
 
@@ -37,7 +38,23 @@ def individual(ind,individual):
    cur = con.cursor()
    cur.execute("select * FROM ERV WHERE repName=? AND genoStart=?", t)
    ind = cur.fetchone()
-   return render_template('individual.html', ind = ind)
+   with open('cariofunctions.R', 'r') as f:
+     string_again = f.read()
+   imgs = STAP(string_again, "imgs")
+   c = ind["genoName"][:5]
+   c = c.replace("_", "")
+   start = int(ind["genoStart"])
+   end = int(ind["genoEnd"])
+   pngs = ""
+   zpngs = ""
+   if c!="chrUn":
+      pngs = "static/img/"+c+str(start)+".png"
+      zpngs = "static/img/z"+c+str(start)+".png"
+      cimg = imgs.localization(c,start,end,pngs)
+      zimg = imgs.zoom(c,start,end,zpngs)
+   else:
+      zpngs = "static/img/un.png"
+   return render_template('individual.html', ind = ind, pngs=pngs, zpngs=zpngs)
 
 @app.route('/search.html')
 def search():
