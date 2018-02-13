@@ -17,6 +17,33 @@
     </script>
 
 </head>
+  
+  <style>
+#tooltip {
+    position:relative;
+    display: inline-block;
+}
+#tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #422a56;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
+
   <body>
     <header>
       <a href="index.html" id="group-name">
@@ -25,15 +52,14 @@
       </a> 
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="database.html">Database</a></li>
-          <li><a href="search.html">Search</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="help.html">About</a></li>
+        <li id='tooltip'><a href="index.html" class="selected">Home</a><span class='tooltiptext'>Retrotransposons homepage with links to LINE1 and HERV databases </span></li></li>
+          <li id='tooltip'><a href="database.html">Database</a><span class='tooltiptext'>Contains database table of retrotransposon properties, explanations and graphics</span></li>
+          <li id='tooltip'><a href="search.html">Search</a><span class='tooltiptext'>Search specifically for your desired retrotransposon by chromosome, strand, amino acid sequence, etc </span></li>
+          <li id='tooltip'><a href="tools.html">Tools</a><span class='tooltiptext'>Upload mzID/TAB files of peptide identification to find any matches in this database</span></li>
+          <li id='tooltip'><a href="help.html">About</a><span class='tooltiptext'>Website information and contact details</span></li>
         </ul>
       </nav>
     </header>
-
     
  {% if res %}
 <section style="margin-left:60px; margin-right:60px;"> 
