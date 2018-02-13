@@ -30,7 +30,7 @@
     #content {
       word-wrap: break-word;
       overflow: hidden;
-      height: 2em;
+      height: 1em;
       line-height: 1em;
       width: 450px;
      }
@@ -65,12 +65,26 @@
     }
 
 
+.posiz {
+    position: relative;
+    width: 70%;
+    border: 3px solid #240942;
+    margin: 30px;
+    }
+
+#backbutton {
+display:block;
+margin-left: auto;
+margin-right:auto;
+}
 
 #backbutton a {
     text-decoration: none;
     display: inline-block;
     padding: 8px 16px;
     border: grey solid 2px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .previous {
@@ -98,7 +112,10 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
+<img src="{{ pngs }}" class="posi">
 </section>
+
+
 <section id="secondary">
         <label>
 	<h4> Sequence: </h4>
@@ -120,13 +137,9 @@
         <input id="more" type="checkbox"> Click for complete sequence
         <div id="content">{{ind["ORF3"]}}</div>
 	</label>
+<img src="{{ zpngs }}" class="posiz">
 	</section>
      </div>
-<img src="{{ pngs }}" class="posi">
-<img src="{{ zpngs }}" class="posi">
-<section id="backbutton">
-<center> <a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a> </center>
-</section>
 
   {% elif ind and ind["repClass"]=="LTR"%}
         <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
@@ -146,6 +159,7 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
+<img src="{{ pngs }}" class="posi">
         </section>
 <section id="secondary">
 	<label>
@@ -168,18 +182,17 @@
         <input id="more" type="checkbox"> Click for complete sequence
         <div id="content">{{ind["ORF3"]}}</div>
         </label>
+<img src="{{ zpngs }}" class="posiz">
 	</section>
 	</div>
-<img src="{{ pngs }}" class="posi">
-<img src="{{ zpngs }}" class="posi">
-<section id="backbutton">
-<center> <a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a> </center>
-</section>
 
  {% else %}
  <h1 style="margin-left: 10px;">Register not found</h1>
  {% endif %}
  
+<section id="backbutton">
+<a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a>
+</section>
 
 
      <footer>
