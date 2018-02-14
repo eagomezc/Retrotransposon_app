@@ -25,14 +25,6 @@
       });
     </script>
 
-    <script type="text/javascript">
-    function swapImage(){
-        var image = document.getElementById("imageToSwap");
-	var dropd = document.getElementById("graphics");
-	image.src = dropd.value;	
-    };
-    </script>
-	
 <style>
 #tooltip {
     position:relative;
@@ -61,6 +53,14 @@
 }
 	
 #imageToSwap {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    }
+
+
+#imageToSwap2 {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -155,7 +155,7 @@ display: block;
  <br/><br/>
 
 <p style='margin-right:10px;'> Select from this list to see chromosome localisations and phylogenetic trees of the retrotransposon amino acid sequences.</p>
-<select id='menu' onchange="$('#imageToSwap').attr('src', this.options[this.selectedIndex].value);">
+<select id='menu' onchange="$('#imageToSwap2').attr('src', this.options[this.selectedIndex].value);">
       <option value=""> Select a graph</option>
       <option value="static/lineplot.jpeg"> Chromosome localisation</option>
       <option value="static/gagtree.png"> Gag phylogenetic tree</option>
@@ -163,7 +163,7 @@ display: block;
       <option value="static/envtree.png"> Env phylogenetic tree</option>
     </select>
 <br><br>
-<img id="imageToSwap" class="profile" src="">
+<img id="imageToSwap2" class="profile" src="">
 
    <section>
    <p style= "margin-left:10px; margin-right:10px; text-align:justify;">The table below displays all transposable elements that are part of the HERV family, grouped by Repetition Name. If you click in one of the Repetion Names, you will be redirected to a table with all the repeats that share that name: </p>  
