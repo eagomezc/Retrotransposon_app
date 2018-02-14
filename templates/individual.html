@@ -95,6 +95,27 @@
     background-color: #9379d1;
     color: black;
 }
+
+
+.imageBox {
+            position: relative;
+            display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+        }
+        .imageBox .hoverImg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+  
+        }
+        .imageBox:hover .hoverImg {
+            display: block;
+         
+        }
+
 </style>
 
   <body>
@@ -133,7 +154,6 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
-<img src="{{ pngs }}" class="posi">
 </section>
 
 
@@ -158,9 +178,16 @@
         <input id="more" type="checkbox"> Click for complete sequence
         <div id="content">{{ind["ORF3"]}}</div>
 	</label>
-<img src="{{ zpngs }}" class="posiz">
 	</section>
-     </div>
+<div class="imageBox">
+    <div class="imageInn">
+        <img src="{{ pngs }}">
+    </div>
+    <div class="hoverImg">
+        <img src="{{ zpngs }}">
+    </div> 
+</div>
+</div>
 
   {% elif ind and ind["repClass"]=="LTR"%}
         <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
@@ -180,7 +207,6 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
-<img src="{{ pngs }}" class="posi">
         </section>
 <section id="secondary">
 	<label>
@@ -203,8 +229,16 @@
         <input id="more" type="checkbox"> Click for complete sequence
         <div id="content">{{ind["ORF3"]}}</div>
         </label>
-<img src="{{ zpngs }}" class="posiz">
 	</section>
+<div class="imageBox">
+    <div class="imageInn">
+        <img src="{{ pngs }}">
+    </div>
+    <div class="hoverImg">
+        <img src="{{ zpngs }}">
+    </div>
+</div>
+
 	</div>
 
  {% else %}
