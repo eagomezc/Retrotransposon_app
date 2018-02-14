@@ -60,10 +60,10 @@
       </a> 
       <nav>
         <ul>
-        <li id='tooltip'><a href="index.html" class="selected">Home</a><span class='tooltiptext'>Retrotransposons homepage with links to LINE1 and HERV databases </span></li></li>
+        <li id='tooltip'><a href="index.html">Home</a><span class='tooltiptext'>Retrotransposons homepage with links to LINE1 and HERV databases </span></li></li>
           <li id='tooltip'><a href="database.html">Database</a><span class='tooltiptext'>Contains database table of retrotransposon properties, explanations and graphics</span></li>
           <li id='tooltip'><a href="search.html">Search</a><span class='tooltiptext'>Search specifically for your desired retrotransposon by chromosome, strand, amino acid sequence, etc </span></li>
-          <li id='tooltip'><a href="tools.html">Tools</a><span class='tooltiptext'>Upload mzID/TAB files of peptide identification to find any matches in this database</span></li>
+          <li id='tooltip'><a href="tools.html" class="selected">Tools</a><span class='tooltiptext'>Upload mzID/TAB files of peptide identification to find any matches in this database</span></li>
           <li id='tooltip'><a href="help.html">About</a><span class='tooltiptext'>Website information and contact details</span></li>
         </ul>
       </nav>
@@ -93,7 +93,7 @@
   <div id="mzt" class="inv">
   <form action="/resultsb.html" method="get">
     <input type="file" name="mzTab" accept="file_extension|mzTab/*">
-    <label class="pep-seq">Type source of the sample. Keep it simple as heart, skin, etc:</label>
+    <label class="pep-seq">Type source of the sample. Keep it simple e.g. heart, skin, etc:</label>
       <input type="text" name="tissue">
    <input type='submit' value='Submit' class="1stsearch">
   </form>
@@ -116,7 +116,7 @@
   </script>
 
 <p style='font-size:1.5em;'></p>
-<h3 style="padding-left:10px;">MSRetro Finder ATLAS</h3>
+<h3 style='font-size: 1.5em; padding-left: 10px;'> MSRetroFinder ATLAS </h3>
 <p style='font-size:1em; padding-left:10px; text-align: justify;'> Previous peptide identifications from MS files can be seen in the next table. If you want to check if a peptide sequence has been found in the past, make sure that keep the Tissue (source of the sample) name in a simple format. If you want to see which retrotransposon contains a particular peptide, click in the amino acid sequence. </p>
 
  <section style="margin-left:60px; margin-right:60px;">
