@@ -10,6 +10,7 @@
   </head>
 
 <style>
+
 #tooltip {
     position:relative;
     display: inline-block;
@@ -85,12 +86,10 @@
             display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 100%;
         }
         .imageBox .hoverImg {
-            position: absolute;
-            left: 0;
-            top: 0;
+            position: relative;
             display: none;
   
         }
@@ -137,7 +136,18 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
-</section>
+        <h4> Chromosome Localization:</h4>
+        <p> Put the mouse over the image to get a zoom. </p>
+        <p> The x-axis numbers are giving in millions.</p>
+       <div class="imageBox">
+       <div class="imageInn">
+       <img src="{{ pngs }}">
+       </div>
+       <div class="hoverImg">
+       <img src="{{ zpngs }}">
+       </div> 
+       </div>
+       </section>
 
 
 <section id="secondary">
@@ -162,15 +172,9 @@
         <div id="content">{{ind["ORF3"]}}</div>
 	</label>
 	</section>
-<div class="imageBox">
-    <div class="imageInn">
-        <img src="{{ pngs }}">
-    </div>
-    <div class="hoverImg">
-        <img src="{{ zpngs }}">
-    </div> 
-</div>
-</div>
+        </div>
+
+
 
   {% elif ind and ind["repClass"]=="LTR"%}
         <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
@@ -190,6 +194,17 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
+        <h4> Chromosome Localization:</h4>
+        <p> Put the mouse over the image to get a zoom. </p>
+        <p> The x-axis numbers are giving in millions.</p>
+        <div class="imageBox">
+        <div class="imageInn">
+        <img src="{{ pngs }}">
+        </div>
+        <div class="hoverImg">
+        <img src="{{ zpngs }}">
+        </div>
+        </div>
         </section>
 <section id="secondary">
 	<label>
@@ -213,20 +228,13 @@
         <div id="content">{{ind["ORF3"]}}</div>
         </label>
 	</section>
-<div class="imageBox">
-    <div class="imageInn">
-        <img src="{{ pngs }}">
-    </div>
-    <div class="hoverImg">
-        <img src="{{ zpngs }}">
-    </div>
-</div>
-
 	</div>
+
 
  {% else %}
  <h1 style="margin-left: 10px;">Register not found</h1>
  {% endif %}
+
  
 <section id="backbutton">
 <a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a>

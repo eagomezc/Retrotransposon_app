@@ -293,13 +293,12 @@ TWO COLUMN LAYOUT
 *****/
   
  #primary {
-  width: 50%;
   float: left;
   padding: 0 1em;
 }
   
 #secondary {
-  width: 40%;
+  width: 50%;
   float: right;
 }
 

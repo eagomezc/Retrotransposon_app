@@ -132,10 +132,10 @@ def amino(aa):
 
 @app.route('/resultsb.html') #resultsb() is the result page for the search make for the MSRetroFinder tool. 
 def resultsb():
-    ml=request.args.get('mzidentml')
+    ml=request.args.get('mzidentml') #Calls the information uploaded by the user through the tool.html template.
     mt=request.args.get('mzTab')
     tissue=request.args.get('tissue')
-    if ml==None:
+    if ml==None: #This "if" allows to the program to know what kind of file was uploaded. If ml is empty, so the file is mzTab, and vice versa.
        seq=mztab(mt)
     else:
        seq=mzidentml(ml)
@@ -143,7 +143,7 @@ def resultsb():
     fills=[]
     ress=[]
     cur = con.cursor()
-    for i in range(0,len(seq)):
+    for i in range(0,len(seq)): #With the sequences list, the program looks for the information first in the MSRetroFinder Atlas.
         t=(seq[i],tissue)
 	cur.execute("SELECT * FROM Fill WHERE Amino LIKE'"+seq[i]+"'AND Tissue LIKE'"+tissue+"'")
         fill=cur.fetchone()
@@ -151,10 +151,10 @@ def resultsb():
            amino.append(seq[i])
            fills.append(fill)
            ress.append("")
-        else:
+        else: #If the program does not find the sequence in the Atlas, then make the search in the RETROtransposon database. 
            cur.execute("SELECT * FROM ERV WHERE ORF1 LIKE'%"+seq[i]+"%' OR ORF2 LIKE'%"+seq[i]+"%' OR ORF3 LIKE'%"+seq[i]+"%'")
            res = cur.fetchall()
-           if res:
+           if res: #Finally, if the program finds a match in the database, inserts the match in the MSRetroFinder Atlas. 
               amino.append(seq[i])
               ress.append(res)
               fills.append("")

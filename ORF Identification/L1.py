@@ -2,9 +2,7 @@
 # FUNCTIONS
 #************
 
-def opener(seq):
-""" This function opens the Fasta file and separates the headers 
-	from the sequences for a better manipulation """
+def opener(seq): #This function opens the Fasta file and separates the headers from the sequences for a better manipulation
     FASTA=open(seq, "r")
     lines=FASTA.readlines()
     headers=[]
@@ -26,21 +24,16 @@ def opener(seq):
             seq=""
     return headers,seqs
 
-def reversecom(proteine):
-""" This functions generates the reverse complementary of the DNA sequence 
-	of each of the retrotransposon in the FASTA file """
-    complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A','N': 'N'} 
+def reversecom(proteine): #This functions generates the reverse complementary of the DNA sequence of each of the retrotransposon
+    complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A','N': 'N'} #in the Fasta file
     bases = list(proteine) 
     bases = [complement[base] for base in bases] 
     proteiner=''.join(bases)
     proteiner=proteiner[::-1]
     return proteiner
 
-def translation(protein):
-""" Biopython has a function to translate DNA to Amino Acid Sequences, but since 
-	we are looking for specific ORFs, we decided to come out with our own translation
-	function """
-    seq=""
+def translation(protein): #Biopython has a function to translate DNA to Amino Acid Sequences, but since we are looking for specific ORFs, we 
+    seq="" # decided to come out with our own translation function.
     seqr=""
     rframes=[protein,reversecom(protein)]
     seqs=[]
@@ -186,10 +179,8 @@ def translation(protein):
             seq=""
     return seqs
 
-def listMax(a):
-""" This function calls for the biggest ORF since it's possible to find the Start Codon
-	inside of an ORF, which can generate small amino acids sequences of a bigger peptide """
-    large=a[0]
+def listMax(a): # This function calls for the biggest ORF since it's possible to find the Start Codon inside of an ORF, which can generate 
+    large=a[0]  # small amino acids sequences of a bigger peptide.
     for i in range(1,len(a)):
         if len(large)>len(a[i]):
             large=large
