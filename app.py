@@ -145,7 +145,7 @@ def resultsb():
     return render_template('resultsb.html',ress=ress, fills=fills, amino=amino, tissue=tissue)
 
 @app.route('/help.html')
-def help():
+def help():   
     return render_template('help.html')
 
 

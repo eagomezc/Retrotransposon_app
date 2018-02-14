@@ -72,6 +72,7 @@
 
 <h3 style='font-size: 1.5em; padding-left: 10px;'> MSRetroFinder </h3>
 <p style='font-size:1em; padding-left:10px; text-align: justify;'> Have a file of peptide identification that you are curious about? Upload it here to find out if it contains any retrotranspons in our database and build your own atlas of findings for future reference.</p>
+<p style='font-size:1em; padding-left:10px; text-align: justify;'> <b> IMPORTANT NOTE: The file that you want to upload has to be in the same directory of the main application (app.py). The source of the sample (Tissue) is MANDATORY. </b></p>
     <h3 style="font-size: 1em; padding-left: 10px; padding-bottom:0;" class="search-form">Choose file format:</h3>
 <div class="dropmenu">
     <select id="target" style="width:1100px;">
@@ -83,7 +84,7 @@
   <div id="mzl" class="inv">
   <form action="/resultsb.html" method="get">
     <input type="file" name="mzidentml" accept="file_extension|mzid/*">
-    <label class="pep-seq">Please type the source (tissue) of the sample (Obligatory field):</label>
+    <label class="pep-seq">Type source of the sample. Keep it simple as heart, skin, etc:</label>
       <input type="text" name="tissue">
    <input type='submit' value='Submit' class="1stsearch">
   </form>
@@ -92,7 +93,7 @@
   <div id="mzt" class="inv">
   <form action="/resultsb.html" method="get">
     <input type="file" name="mzTab" accept="file_extension|mzTab/*">
-    <label class="pep-seq">Please type the source (tissue) of the sample (Obligatory field):</label>
+    <label class="pep-seq">Type source of the sample. Keep it simple as heart, skin, etc:</label>
       <input type="text" name="tissue">
    <input type='submit' value='Submit' class="1stsearch">
   </form>
@@ -115,7 +116,8 @@
   </script>
 
 <p style='font-size:1.5em;'></p>
-<h3 style="padding-left:10px;">ATLAS</h3>
+<h3 style="padding-left:10px;">MSRetro Finder ATLAS</h3>
+<p style='font-size:1em; padding-left:10px; text-align: justify;'> Previous peptide identifications from MS files can be seen in the next table. If you want to check if a peptide sequence has been found in the past, make sure that keep the Tissue (source of the sample) name in a simple format. If you want to see which retrotransposon contains a particular peptide, click in the amino acid sequence. </p>
 
  <section style="margin-left:60px; margin-right:60px;">
   <table id="resultsb">
