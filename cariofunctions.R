@@ -1,5 +1,6 @@
 localization <- function(chr,gstart,gend,png) {
   
+  library(crop)
   library(karyoploteR)
   
   chrs <- toGRanges(
@@ -11,7 +12,7 @@ localization <- function(chr,gstart,gend,png) {
   kpAddBaseNumbers(kp)
   kpDataBackground(kp, r0=0, r1=0.05, color = "gray77", data.panel = 2)
   kpPlotRegions(kp, data=chrs, col="orchid4", r0=0, r1=0.1)
-  dev.off()
+  dev.off.crop(file=png)
   return()
   
 }
@@ -21,6 +22,7 @@ zoom <- function(chr,gstart,gend,png) {
   zoom1 <- gstart - 10000000
   zoom2 <- gend + 10000000
   
+  library(crop)
   library(karyoploteR)
   
   chrs <- toGRanges(
@@ -34,8 +36,7 @@ zoom <- function(chr,gstart,gend,png) {
   kpAddBaseNumbers(kp, tick.dist=1000000)
   kpDataBackground(kp, r0=0, r1=0.05, color = "gray77", data.panel = 2)
   kpPlotRegions(kp, data=chrs, col="orchid4", r0=0, r1=0.1)
-  dev.off()
-
+  dev.off.crop(file=png)
   return()
   
 }
