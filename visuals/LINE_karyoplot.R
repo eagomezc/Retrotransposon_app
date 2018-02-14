@@ -1,13 +1,11 @@
-source("https://bioconductor.org/biocLite.R")
-biocLite("karyoploteR")
-library(karyoploteR)
+# kpPlotDensity
 
 #load LINE dataset
 
 data1 <-read.csv("/Users/vithusaaselva1/Desktop/Line1.csv")
 head(data1)
 
-#chromosome row number
+#chromosome column number
 
 chromo <- data1[data1$genoName == "chr", ]
 
@@ -23,7 +21,17 @@ gstart <- data1$genoStart
 
 gend <- data1$genoEnd
 
-#funtion for genoStart
+
+#************
+# FUNCTIONS
+#************
+
+# @details
+
+# call function and store information for each chromosome 
+# start and end coordinates
+
+# genoStart
 
 function1 <- function(chr){
   Gname<-(data1[1] == chr)
@@ -31,7 +39,7 @@ function1 <- function(chr){
   return(gstart)
 }
 
-#function for genoEnd
+# genoEnd
 
 function2 <- function(chr){
   Gname<-(data1[1] == chr)
@@ -113,8 +121,37 @@ chrXend <- function2("chrX")
 chrYstart <- function1("chrY")
 chrYend <- function2("chrY")
 
+source("https://bioconductor.org/biocLite.R")
+biocLite("karyoploteR")
+library(karyoploteR)
 
-# store chromosome start and end info in GRanges object
+# store chromosome start and end functions in GRanges object
+
+#***************
+#KpPlotDensity 
+#***************
+
+
+# @details
+
+
+# \code{kpPlotDensity} Density of features (coordinates) are plotted along the genome represented by
+# \code {GRanges} object through the length of the genome. It computes the number of features per chromosome 
+# and ensures no overlapping flooring along the genome.
+# \code {chr=c(x), start= c(y),end= c(z)}, firstly need to specify chromosome,
+# the start coordinate, and then end coordinate
+# Returns the regions where the chromosome coordinates should be located on the genome.
+
+
+# @parameters 
+
+
+# \code{kp} the initial argument for the data plotting functions of karyoplotR. Returned
+# by calling \code{plotKaryotype}
+# \code {data= chr1data} this is a GRanges object, from which density is computed
+# \code {col= "#DBBDED"} specifies colour of the density plotted, in this case purple
+# \code {r= r0=0, r1=0.5} specifies vertical range of data panel to sketch the plot
+
 
 chr1data <- toGRanges(
   data.frame(
@@ -212,57 +249,57 @@ chrYdata <- toGRanges(
   data.frame(
     chr=c("chrY"), start= c(chrYstart),end= c(chrYend)))
 
-#plot karyoplot
-
-kp <- plotKaryotype(genome="hg38", plot.type=1, main="LINE chromosome start and end ranges", cex=0.6)
+kp <- plotKaryotype(genome="hg38", plot.type=1, main="Density plot for LINE retrotransposons", cex=0.6)
 
 kpAddBaseNumbers(kp)
 
-kpPlotRegions(kp, data= chr1data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr1data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr2data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr2data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr3data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr3data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr4data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr4data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr5data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr5data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr6data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr6data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr7data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr7data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr8data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr8data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr9data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr9data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr10data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr10data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr11data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr11data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr12data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr12data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr13data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr13data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr14data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr14data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr15data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr15data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr16data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr16data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr17data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr17data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr18data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr18data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr19data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr19data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr20data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr20data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr21data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr21data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chr22data, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chr22data, col="#DBBDED", r0=0, r1=0.5)
 
-kpPlotRegions(kp, data= chrXdata, col="#DBBDED", r0=0, r1=0.5)
+kpPlotDensity(kp, data= chrXdata, col="#DBBDED", r0=0, r1=0.5)
+
+kpPlotDensity(kp, data= chrYdata, col="#DBBDED", r0=0, r1=0.5)
 
 kpPlotRegions(kp, data= chrYdata, col="#DBBDED", r0=0, r1=0.5)
 
