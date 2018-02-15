@@ -56,7 +56,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
     }
 
 
@@ -64,7 +63,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
     }
       
  
@@ -110,9 +108,9 @@ display: block;
 <p style='margin-right:10px;'> Select from this list to see chromosome localisations and phylogenetic trees of the retrotransposon amino acid sequences: </p>
 <select id='menu' onchange="$('#imageToSwap').attr('src', this.options[this.selectedIndex].value);">
       <option value=""> Select a graph</option>
-      <option value="static/lineplot.jpeg"> Chromosome localisation</option>
-      <option value="static/orf1tree.png"> ORF 1 phylogenetic tree</option>
-      <option value="static/indi.png"> ORF 2 phylogenetic tree</option>
+      <option value="static/l1-plot.png"> Chromosome localisation</option>
+      <option value="static/orf1-tree.png"> ORF 1 phylogenetic tree</option>
+      <option value="static/l1-plot.png"> ORF 2 phylogenetic tree</option>
     </select>
 <br><br>
 <img id="imageToSwap" class="profile" src="">
@@ -157,10 +155,10 @@ display: block;
 <p style='margin-right:10px;'> Select from this list to see chromosome localisations and phylogenetic trees of the retrotransposon amino acid sequences.</p>
 <select id='menu' onchange="$('#imageToSwap2').attr('src', this.options[this.selectedIndex].value);">
       <option value=""> Select a graph</option>
-      <option value="static/lineplot.jpeg"> Chromosome localisation</option>
-      <option value="static/gagtree.png"> Gag phylogenetic tree</option>
-      <option value="static/poltree.png"> Pol phylogenetic tree</option>
-      <option value="static/envtree.png"> Env phylogenetic tree</option>
+      <option value="static/erv-plot.png"> Chromosome localisation</option>
+      <option value="static/gag-tree.png"> Gag phylogenetic tree</option>
+      <option value="static/pol-tree.png"> Pol phylogenetic tree</option>
+      <option value="static/env-tree.png"> Env phylogenetic tree</option>
     </select>
 <br><br>
 <img id="imageToSwap2" class="profile" src="">
