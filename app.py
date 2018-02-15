@@ -72,7 +72,7 @@ def individual(ind,individual):
       cimg = imgs.localization(c,start,end,pngs) #Calls the R functions from the script. 
       zimg = imgs.zoom(c,start,end,zpngs)
    else:
-      zpngs = "static/img/un.png" #In case that the chromosome is unknown (some cases in the database), an alternative image is displayed.
+      pngs =  "static/img/un.png" #In case that the chromosome is unknown (some cases in the database), an alternative image is displayed.
    return render_template('individual.html', ind = ind, pngs=pngs, zpngs=zpngs)
 
 @app.route('/search.html')

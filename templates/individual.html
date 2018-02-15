@@ -122,7 +122,7 @@
  {% if ind and ind["repClass"]=="LINE"%}
         <h3 style="font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
 <div id="individuall1">
-<section id="primary-ind">
+<section id="primary">
 	<h4>Chromosome:</h4>
         <p>{{ind["genoName"]}} </p>
         <h4>Strand:</h4>
@@ -137,6 +137,7 @@
  	<h4>Chromosome Location: </h4>
         <p>Start: {{ind["genoStart"]}}</p>
         <p>End: {{ind["genoEnd"]}}</p>
+ 	<p> </p>		
         <p> Hover over the image to see the location of the retrotransposon</p>
         <p> in the chromosome zoomed in (x-axis values are in millions).</p>
        <div class="imageBox">
@@ -150,7 +151,7 @@
        </section>
 
 
-<section id="secondary-ind">
+<section id="secondary">
         <label>
 	<h4> Sequence: </h4>
         <input id="more" type="checkbox"> Click for complete sequence
@@ -179,7 +180,7 @@
   {% elif ind and ind["repClass"]=="LTR"%}
         <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
 <div id="individualherv">
-<section id="primary-ind">
+<section id="primary">
         <h4>Chromosome:</h4>
         <p> {{ind["genoName"]}} </p>
         <h4>Strand: </h4>
@@ -194,6 +195,7 @@
 	<h4>Chromosome Location: </h4>
         <p>Start: {{ind["genoStart"]}}</p>
         <p>End: {{ind["genoEnd"]}}</p>
+        <p> </p>
 	<p> Hover over the image to see the location of the retrotransposon</p>
         <p> in the chromosome zoomed in (x-axis values are in millions).</p>
         <div class="imageBox">
@@ -205,7 +207,7 @@
         </div>
         </div>
         </section>
-<section id="secondary-ind">
+<section id="secondary">
 	<label>
         <h4> Sequence: </h4>
         <input id="more" type="checkbox"> Click for complete sequence
