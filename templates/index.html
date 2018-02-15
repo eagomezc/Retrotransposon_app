@@ -7,8 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans+Condensed:300i|PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   </head>
+
+<!-- Tool tips that appear upon hovering over navigation bar -->
 
 <style>
 #tooltip {
@@ -36,16 +37,21 @@
 #tooltip:hover .tooltiptext {
     visibility: visible;
 }
-
 </style>
 
   <body>
     <header>
+
+<!-- Website name and slogan  -->
+
       <a href="index.html" id="group-name">
         <h1>RETROtransposons</h1>
         <h2>for everything retrotransposon-y</h2>
       </a> 
-      <nav>
+
+<!-- Navigation bar with links to different pages of wesbite, display tooltips when hovering over -->
+
+     <nav>
         <ul>
         <li id='tooltip'><a href="index.html" class="selected">Home</a><span class='tooltiptext'>Retrotransposons homepage with links to LINE1 and HERV databases </span></li></li>
           <li id='tooltip'><a href="database.html">Database</a><span class='tooltiptext'>Contains database table of retrotransposon properties, explanations and graphics</span></li>
@@ -56,6 +62,7 @@
       </nav>
     </header>
 
+<!-- Introduction paragraph to RETROtransposons -->
 
     <div id="intro" style="margin-bottom: -90px; margin-top: 50px;">
     <h3 style="text-align: center;"> This website is useful for the exploration of retrotransposons and their properties</h3>
@@ -63,6 +70,8 @@
     <p style="text-align: center;"> Have a file of peptide identification that you're curious about? Click on the tools page to find out if they contain any retrotransposons!</p>
     </div>
   
+<!-- Links to the different retrotransposon families, take user to LINE1 and HERV database information, respectively -->
+
     <div id="family">
       <h3 style="text-align:center;">Retrotransposon Families:</h3>
       <a href="database.html#line">       
@@ -71,6 +80,8 @@
         <h3  style="text-align:center;">HERV</h3> </a>
     </div>
     
+<!-- Footer - image of GitHub octocat logo takes user to Farfalloni Github repository -->
+
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
         <p>Farfalloni 2018 &copy;</p>

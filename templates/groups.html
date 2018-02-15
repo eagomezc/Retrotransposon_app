@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
     <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<!-- makes pagination for tables-->
+
     <script>
       $(document).ready(function(){
       $('#groups').DataTable();
@@ -17,6 +20,8 @@
     </script>
 
 </head>
+
+<!-- Tool tips that appear upon hovering over navigation bar -->
  
 <style>
 #tooltip {
@@ -46,10 +51,16 @@
 
   <body>
     <header>
+
+<!-- Website name and slogan  -->
+
       <a href="index.html" id="group-name">
         <h1>RETROtransposons</h1>
         <h2>for everything retrotransposon-y</h2>
       </a> 
+
+<!-- Navigation bar with links to different pages of wesbite, display tooltips when hovering over -->
+
       <nav>
         <ul>
         <li id='tooltip'><a href="index.html">Home</a><span class='tooltiptext'>Retrotransposons homepage with links to LINE1 and HERV databases </span></li></li>
@@ -60,6 +71,8 @@
         </ul>
       </nav>
     </header>
+
+<!-- Table that calls required information from the database into rows, respectively -->
 
  {% if group %}
  <h3 style="margin-left: 10px; font-size: 2em; padding-bottom: 0.5em;">{{group[0]["repName"]}}</h3>
@@ -88,9 +101,13 @@
  </table>
 </section>
 
+<!-- If invalid query/not found, simple message displayed to user -->
+
  {% else %}
  <h3>Query not found</h3>
  {% endif %} 
+
+<!-- Footer - image of GitHub octocat logo takes user to Farfalloni Github repository -->
 
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>

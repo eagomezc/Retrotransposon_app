@@ -10,12 +10,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
     <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<!-- makes pagination for tables-->
+
     <script>
       $(document).ready(function(){
       $('#resultsb').DataTable();
       });
     </script>
   </head>
+
+<!-- Tool tips that appear upon hovering over navigation bar and styling of submit buttons and text input sections-->
 
 <style>
 .inv {
@@ -58,6 +63,9 @@
         <h1>RETROtransposons</h1>
         <h2>for everything retrotransposon-y</h2>
       </a> 
+
+<!-- Navigation bar with links to different pages of wesbite, display tooltips when hovering over -->
+
       <nav>
         <ul>
         <li id='tooltip'><a href="index.html">Home</a><span class='tooltiptext'>Retrotransposons homepage with links to LINE1 and HERV databases </span></li></li>
@@ -69,6 +77,7 @@
       </nav>
     </header>
 
+<!-- Upload forms for peptide identification files from user -->
 
 <h3 style='font-size: 1.5em; padding-left: 10px;'> MSRetroFinder </h3>
 <p style='font-size:1em; padding-left:10px; text-align: justify;'> Have a file of peptide identification that you are curious about? Upload it here to find out if it contains any retrotranspons in our database and build your own atlas of findings for future reference.</p>
@@ -115,6 +124,9 @@
             });
   </script>
 
+<!-- ATLAS which stores retrotransposons found from user input file that can be added to with every search -->
+
+
 <p style='font-size:1.5em;'></p>
 <h3 style='font-size: 1.5em; padding-left: 10px;'> MSRetroFinder ATLAS </h3>
 <p style='font-size:1em; padding-left:10px; text-align: justify;'> Previous peptide identifications from MS files can be seen in the next table. If you want to check if a peptide sequence has been found in the past, make sure that keep the Tissue (source of the sample) name in a simple format. If you want to see which retrotransposon contains a particular peptide, click in the amino acid sequence. </p>
@@ -136,6 +148,8 @@
  {% endfor %}
  </table> 
 </section>
+
+<!-- Footer - image of GitHub octocat logo takes user to Farfalloni Github repository -->
 
       <footer>
         <a href="https://github.com/eagomezc/Farfalloni"><img src="static/github_icon.png" alt="Github logo" class="social-icon"></a>
