@@ -66,7 +66,7 @@
  {% for l in range(0,amino|length) %}
   <h3> Sequence {{amino[l]}} in Tissue {{tissue}} </h3>
   {% if fills[l]!="" %}
-  <h3> There is a match in the ATLAS </h3>
+  <h3> There is a match in the MSRetroFinder ATLAS </h3>
   <section style="margin-left:60px; margin-right:60px;">
   <table id="tableind">
   <thead>
@@ -87,7 +87,7 @@
       $('#datas{{l}}').DataTable();
       });
     </script>
- <h3> There is at least a match in the RETROTRASPOSON DATABASE </h3>
+ <h3> There is a match in the RETROtransposon DATABASE </h3>
   <section style="margin-left:60px; margin-right:60px;">
   <table id="datas{{l}}">
   <thead>

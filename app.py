@@ -36,7 +36,7 @@ def index():
 def database():
    cur = con.cursor() #Object that allows to execute commands over the database
    cur.execute("SELECT DISTINCT repName, count(*) FROM ERV WHERE repClass='LINE' GROUP BY repName") #SELECT DISTINCT only selects the different
-   l1s = cur.fetchall()  #elements, avoid showing repeat elements. Count(*) counts all the elements that share a same name
+   l1s = cur.fetchall()  #elements, avoid showing repeated elements. Count(*) counts all the elements that share a same name
    cur.execute("SELECT DISTINCT repName, count(*) FROM ERV WHERE repClass='LTR' GROUP BY repName")
    ltrs = cur.fetchall() #Fetchall harvests in a list all the elements that pass the condition established for the WHERE command
    return render_template("database.html",l1s = l1s,ltrs=ltrs) #Then you can call the list in the HTML template. 
@@ -56,22 +56,23 @@ def individual(ind,individual):
    cur.execute("select * FROM ERV WHERE repName=? AND genoStart=?", t)
    ind = cur.fetchone() #Since we are only expected one result, fetchone make the search faster. 
    
-   with open('cariofunctions.R', 'r') as f:
+   with open('cariofunctions.R', 'r') as f: #Allows to read the scripts from R. 
      string_again = f.read()
-   imgs = STAP(string_again, "imgs")
-   c = ind["genoName"][:5]
-   c = c.replace("_", "")
-   start = int(ind["genoStart"])
+
+   imgs = STAP(string_again, "imgs") #Creates and object than later can be used to calle the functions inside of the R script.
+   c = ind["genoName"][:5] #Get all the variables from the database.
+   c = c.replace("_", "")  #KaryoplotteR recognizes the chromosome name like chr1, chr2, etc. Since the first letters of the name of the 
+   start = int(ind["genoStart"]) #chromosomes from the database match with this nomenclature, we make sure to get the names correctly.  
    end = int(ind["genoEnd"])
    pngs = ""
    zpngs = ""
    if c!="chrUn":
-      pngs = "static/img/"+c+str(start)+".png"
+      pngs = "static/img/"+c+str(start)+".png"  #Allows to name the final images and locate them in the right folder. 
       zpngs = "static/img/z"+c+str(start)+".png"
-      cimg = imgs.localization(c,start,end,pngs)
+      cimg = imgs.localization(c,start,end,pngs) #Calls the R functions from the script. 
       zimg = imgs.zoom(c,start,end,zpngs)
    else:
-      zpngs = "static/img/un.png"
+      zpngs = "static/img/un.png" #In case that the chromosome is unknown (some cases in the database), an alternative image is displayed.
    return render_template('individual.html', ind = ind, pngs=pngs, zpngs=zpngs)
 
 @app.route('/search.html')
