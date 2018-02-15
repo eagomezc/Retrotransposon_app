@@ -58,6 +58,7 @@ nav ul {
 
 nav li {
   display: inline-block;
+  margin-right: 20px;
 }
 
 nav a {
@@ -185,6 +186,19 @@ tr:nth-child(even) {
 INDIVIDUAL PAGE
 *****/
 
+ #primary-ind {
+  float: left;
+  padding: 0 1em;
+  width: 40%;
+}
+  
+#secondary-ind {
+  width: 40%;
+  float: right;
+}
+
+
+
 /*****
 SEARCH PAGE
 *****/
@@ -295,10 +309,11 @@ TWO COLUMN LAYOUT
  #primary {
   float: left;
   padding: 0 1em;
+  width: 50%;
 }
   
 #secondary {
-  width: 50%;
+  width: 40%;
   float: right;
 }
 

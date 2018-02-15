@@ -73,6 +73,7 @@
     border: grey solid 2px;
     margin-left:600px;
     margin-right:auto;
+    margin-top:30px;
 }
 
 .previous {
@@ -82,21 +83,21 @@
 
 
 .imageBox {
-            position: relative;
-            display: block;
+    position: relative;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-        }
-        .imageBox .hoverImg {
-            position: relative;
-            display: none;
-  
-        }
-        .imageBox:hover .hoverImg {
-            display: block;
-         
-        }
+  }
+    
+.imageBox .hoverImg {
+    position: relative;
+    display: none; 
+    }
+
+.imageBox:hover .hoverImg {
+    display: block;         
+    }
 
 </style>
 
@@ -121,14 +122,11 @@
  {% if ind and ind["repClass"]=="LINE"%}
         <h3 style="font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
 <div id="individuall1">
-<section id="primary">
+<section id="primary-ind">
 	<h4>Chromosome:</h4>
         <p>{{ind["genoName"]}} </p>
         <h4>Strand:</h4>
         <p>{{ind["strand"]}} </p>
-        <h4>Chromosome Location: </h4>
-	<p>Start: {{ind["genoStart"]}}</p>
-        <p>End: {{ind["genoEnd"]}}</p>
         <h4>Retrotransposon Family:</h4>
         <p>{{ind["repFamily"]}}</p>
         <h4>Retrotransposon Class: </h4>
@@ -136,9 +134,11 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
-        <h4> Chromosome Localization:</h4>
-        <p> Hover over the image to zoom in. </p>
-        <p> The x-axis values are in millions.</p>
+ 	<h4>Chromosome Location: </h4>
+        <p>Start: {{ind["genoStart"]}}</p>
+        <p>End: {{ind["genoEnd"]}}</p>
+        <p> Hover over the image to see the location of the retrotransposon</p>
+        <p> in the chromosome zoomed in (x-axis values are in millions).</p>
        <div class="imageBox">
        <div class="imageInn">
        <img src="{{ pngs }}">
@@ -150,7 +150,7 @@
        </section>
 
 
-<section id="secondary">
+<section id="secondary-ind">
         <label>
 	<h4> Sequence: </h4>
         <input id="more" type="checkbox"> Click for complete sequence
@@ -179,14 +179,11 @@
   {% elif ind and ind["repClass"]=="LTR"%}
         <h3 style= "font-size: 2em; margin-left: 10px;">{{ind["repName"]}}</h3>
 <div id="individualherv">
-<section id="primary">
+<section id="primary-ind">
         <h4>Chromosome:</h4>
         <p> {{ind["genoName"]}} </p>
         <h4>Strand: </h4>
         <p>{{ind["strand"]}} </p>
-        <h4>Chromosome Location: </h4>
-        <p>Start: {{ind["genoStart"]}}</p>
-        <p>End: {{ind["genoEnd"]}}</p>
         <h4>Retrotransposon Family: </h4>
         <p> {{ind["repFamily"]}}</p>
         <h4>Retrotransposon Class: </h4>
@@ -194,9 +191,11 @@
         <h4> Repetition:</h4>
         <p> Start: {{ind["repStart"]}}</p>
         <p> End: {{ind["repEnd"]}}</p>
-        <h4> Chromosome Localization:</h4>
-        <p> Hover over the image to zoom in. </p>
-        <p> The x-axis values are in millions.</p>
+	<h4>Chromosome Location: </h4>
+        <p>Start: {{ind["genoStart"]}}</p>
+        <p>End: {{ind["genoEnd"]}}</p>
+	<p> Hover over the image to see the location of the retrotransposon</p>
+        <p> in the chromosome zoomed in (x-axis values are in millions).</p>
         <div class="imageBox">
         <div class="imageInn">
         <img src="{{ pngs }}">
@@ -206,7 +205,7 @@
         </div>
         </div>
         </section>
-<section id="secondary">
+<section id="secondary-ind">
 	<label>
         <h4> Sequence: </h4>
         <input id="more" type="checkbox"> Click for complete sequence
@@ -232,10 +231,10 @@
 
 
  {% else %}
- <h1 style="margin-left: 10px;">Register not found</h1>
+<h1 style="margin-left: 10px;">Register not found</h1>
  {% endif %}
 
- 
+
 <section id="backbutton">
 <a href="#" onClick="history.go(-1);return true;" class="previous">&laquo; Back to search list</a>
 </section>
